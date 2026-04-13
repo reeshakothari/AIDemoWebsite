@@ -1,0 +1,66 @@
+.page{font-family:'Segoe UI',sans-serif;background:#f4f7f2;color:#1a2e1a;}
+.container{max-width:1100px;margin:0 auto;padding:0 24px;}
+.nav{display:flex;align-items:center;gap:28px;padding:0 40px;height:72px;background:rgba(244,247,242,0.95);border-bottom:1px solid #d4e8cc;position:sticky;top:0;z-index:100;backdrop-filter:blur(8px);}
+.back{font-size:13px;color:#5a8a4a;text-decoration:none;}
+.back:hover{text-decoration:underline;}
+.logo{font-size:22px;font-weight:300;letter-spacing:4px;color:#1a2e1a;margin-right:auto;}
+.links{display:flex;gap:28px;list-style:none;margin:0;padding:0;}
+.links a{font-size:13px;color:#6b8c6b;text-decoration:none;transition:color 0.2s;}
+.links a:hover{color:#1a2e1a;}
+.navCta{background:#5a8a4a;color:#fff;padding:10px 22px;border-radius:100px;font-size:13px;font-weight:600;text-decoration:none;transition:background 0.2s;}
+.navCta:hover{background:#4a7a3a;}
+.hero{position:relative;min-height:calc(100vh - 72px);display:flex;align-items:center;overflow:hidden;}
+.heroBg{position:absolute;inset:0;background:linear-gradient(160deg,#d4e8cc 0%,#b8d4a8 40%,#8faf72 100%);}
+.heroContent{position:relative;z-index:1;padding:80px;max-width:620px;}
+.heroBadge{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,0.5);backdrop-filter:blur(8px);color:#2d5a1e;font-size:13px;font-weight:600;padding:7px 18px;border-radius:100px;margin-bottom:24px;}
+.heroContent h1{font-size:clamp(48px,7vw,84px);font-weight:800;line-height:1.0;color:#1a2e1a;margin-bottom:20px;}
+.heroContent h1 em{font-style:italic;font-weight:300;color:#2d5a1e;}
+.heroContent p{font-size:17px;color:#3d6a2e;line-height:1.7;max-width:440px;margin-bottom:36px;}
+.heroCtas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:28px;}
+.btnSage{display:inline-block;background:#1a2e1a;color:#d4e8cc;padding:14px 32px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:all 0.2s;}
+.btnSage:hover{background:#2d5a1e;}
+.btnOutline{display:inline-block;background:rgba(255,255,255,0.3);color:#1a2e1a;padding:14px 32px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;border:1.5px solid rgba(26,46,26,0.3);backdrop-filter:blur(4px);transition:all 0.2s;}
+.btnOutline:hover{background:rgba(255,255,255,0.5);}
+.heroMeta{display:flex;gap:20px;font-size:13px;color:#3d6a2e;flex-wrap:wrap;}
+.statsBar{display:grid;grid-template-columns:repeat(4,1fr);background:#1a2e1a;}
+.stat{display:flex;flex-direction:column;align-items:center;padding:28px;border-right:1px solid rgba(255,255,255,0.06);}
+.stat:last-child{border:none;}
+.stat span{font-size:28px;font-weight:800;color:#d4e8cc;}
+.stat p{font-size:12px;color:rgba(255,255,255,0.4);margin:4px 0 0;letter-spacing:1px;}
+.sectionHead{text-align:center;margin-bottom:48px;}
+.tag{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#5a8a4a;display:block;margin-bottom:10px;}
+.sectionHead h2{font-size:clamp(28px,3vw,44px);font-weight:800;color:#1a2e1a;}
+.classesSection{padding:80px 0;background:#fff;}
+.classGrid{display:flex;flex-direction:column;gap:1px;background:#e8f0e4;}
+.classCard{display:grid;grid-template-columns:100px 1fr auto;align-items:center;gap:24px;background:#fff;padding:20px 28px;border-left:3px solid #e8f0e4;transition:border-color 0.2s;}
+.classCard:hover{border-color:#5a8a4a;}
+.classTime{font-size:16px;font-weight:700;color:#5a8a4a;}
+.className{font-size:16px;font-weight:600;color:#1a2e1a;margin-bottom:4px;}
+.classLevel{font-size:13px;color:#6b8c6b;}
+.classBtn{background:#f4f7f2;border:1.5px solid #d4e8cc;color:#5a8a4a;padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;text-decoration:none;transition:all 0.2s;white-space:nowrap;}
+.classBtn:hover{background:#5a8a4a;color:#fff;border-color:#5a8a4a;}
+.offeringsSection{padding:80px 0;background:#f4f7f2;}
+.offeringsGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.offerCard{background:#fff;border-radius:20px;padding:32px;border:1px solid #d4e8cc;transition:box-shadow 0.2s;}
+.offerCard:hover{box-shadow:0 8px 32px rgba(90,138,74,0.1);}
+.offerIcon{font-size:32px;margin-bottom:14px;}
+.offerCard h3{font-size:17px;font-weight:700;margin-bottom:8px;}
+.offerCard p{font-size:14px;color:#6b8c6b;line-height:1.6;margin:0;}
+.quoteSection{background:#2d5a1e;padding:80px 24px;text-align:center;}
+.quoteInner{max-width:600px;margin:0 auto;}
+.leafDecor{font-size:36px;margin-bottom:20px;}
+.quoteSection blockquote{font-size:clamp(18px,2.5vw,24px);font-style:italic;color:#d4e8cc;line-height:1.6;margin:0 0 20px;}
+.quoteSection cite{font-size:14px;color:rgba(212,232,204,0.6);}
+.bookSection{padding:80px 0;background:#fff;}
+.bookGrid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start;}
+.bookGrid h2{font-size:clamp(28px,3vw,44px);font-weight:800;color:#1a2e1a;margin:8px 0 16px;}
+.bookGrid p{font-size:16px;color:#6b8c6b;line-height:1.7;margin-bottom:28px;}
+.bookInfo{display:flex;flex-direction:column;gap:12px;font-size:14px;color:#9ab89a;}
+.bookForm{background:#f4f7f2;border:1px solid #d4e8cc;border-radius:20px;padding:36px;display:flex;flex-direction:column;gap:14px;}
+.bookForm input,.bookForm select,.bookForm textarea{padding:12px 16px;border:1.5px solid #d4e8cc;border-radius:10px;font-size:14px;color:#1a2e1a;background:#fff;outline:none;font-family:inherit;resize:none;transition:border-color 0.2s;}
+.bookForm input:focus,.bookForm select:focus,.bookForm textarea:focus{border-color:#5a8a4a;}
+.bookForm .btnSage{width:100%;text-align:center;padding:14px;}
+.footer{background:#1a2e1a;padding:32px;text-align:center;}
+.footerLogo{font-size:24px;font-weight:300;letter-spacing:4px;color:#d4e8cc;margin-bottom:8px;}
+.footer p{font-size:12px;color:#2d5a1e;}
+@media(max-width:900px){.heroContent{padding:48px 24px;}.statsBar{grid-template-columns:1fr 1fr;}.classCard{grid-template-columns:80px 1fr;}.classBtn{display:none;}.offeringsGrid{grid-template-columns:1fr 1fr;}.bookGrid{grid-template-columns:1fr;}.links{display:none;}}

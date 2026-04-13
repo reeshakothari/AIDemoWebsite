@@ -1,0 +1,101 @@
+.page { font-family: 'Segoe UI', sans-serif; background: #fff; color: #0f2942; }
+.container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+.topBar { background: #0891B2; color: #fff; font-size: 12px; text-align: center; padding: 8px; letter-spacing: 0.5px; }
+.nav { display: flex; align-items: center; gap: 28px; padding: 0 40px; height: 68px; background: #fff; border-bottom: 1px solid #E0F2FE; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(8,145,178,0.06); }
+.back { font-size: 13px; color: #0891B2; text-decoration: none; }
+.back:hover { text-decoration: underline; }
+.logo { font-size: 22px; font-weight: 800; color: #0f2942; margin-right: auto; }
+.logo span { color: #0891B2; }
+.links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
+.links a { font-size: 14px; color: #64748b; text-decoration: none; transition: color 0.2s; }
+.links a:hover { color: #0891B2; }
+.navCta { background: #0891B2; color: #fff; padding: 10px 22px; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; transition: background 0.2s; }
+.navCta:hover { background: #0e7490; }
+
+.hero { display: grid; grid-template-columns: 1fr 420px; gap: 48px; align-items: center; min-height: calc(100vh - 104px); padding: 60px 80px; background: linear-gradient(135deg, #F0FDFF 0%, #E0F2FE 100%); }
+.heroPill { display: inline-flex; align-items: center; gap: 8px; background: #DCFCE7; color: #15803d; font-size: 13px; font-weight: 600; padding: 6px 16px; border-radius: 100px; margin-bottom: 20px; }
+.heroContent h1 { font-size: clamp(36px, 5vw, 60px); font-weight: 800; line-height: 1.15; margin-bottom: 20px; }
+.heroContent h1 span { color: #0891B2; }
+.heroContent p { font-size: 16px; color: #64748b; line-height: 1.7; max-width: 480px; margin-bottom: 32px; }
+.heroCtas { display: flex; gap: 16px; margin-bottom: 40px; flex-wrap: wrap; }
+.heroTrust { display: flex; gap: 32px; }
+.trustItem { display: flex; flex-direction: column; }
+.trustItem strong { font-size: 26px; font-weight: 800; color: #0f2942; }
+.trustItem span { font-size: 13px; color: #94a3b8; margin-top: 2px; }
+
+.heroCard { background: #fff; border-radius: 20px; padding: 28px; box-shadow: 0 8px 40px rgba(8,145,178,0.12); }
+.heroCardHeader { font-size: 13px; font-weight: 700; color: #0891B2; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
+.slotGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.slot { background: #F0FDFF; border: 1.5px solid #BAE6FD; color: #0891B2; font-size: 13px; font-weight: 600; padding: 10px; text-align: center; border-radius: 8px; cursor: pointer; transition: all 0.2s; }
+.slot:hover { background: #0891B2; color: #fff; border-color: #0891B2; }
+
+.btnTeal { display: inline-block; background: #0891B2; color: #fff; padding: 13px 28px; border-radius: 10px; font-size: 14px; font-weight: 700; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s; }
+.btnTeal:hover { background: #0e7490; }
+.btnOutline { display: inline-block; background: transparent; color: #0f2942; padding: 13px 28px; border-radius: 10px; font-size: 14px; font-weight: 700; text-decoration: none; border: 2px solid #CBD5E1; transition: all 0.2s; }
+.btnOutline:hover { border-color: #0891B2; color: #0891B2; }
+.btnTealOutline { display: block; background: transparent; color: #0891B2; padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; border: 1.5px solid #BAE6FD; text-align: center; transition: all 0.2s; }
+.btnTealOutline:hover { background: #0891B2; color: #fff; border-color: #0891B2; }
+
+.sectionHead { text-align: center; margin-bottom: 48px; }
+.sectionTag { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #0891B2; display: block; margin-bottom: 10px; }
+.sectionHead h2 { font-size: clamp(28px, 3vw, 40px); font-weight: 800; margin-bottom: 12px; }
+.sectionHead p { font-size: 16px; color: #64748b; }
+
+.specialtiesSection { padding: 80px 0; background: #fff; }
+.specialtiesGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.specCard { border: 1.5px solid #E0F2FE; border-radius: 16px; padding: 28px; transition: border-color 0.2s, box-shadow 0.2s; }
+.specCard:hover { border-color: #0891B2; box-shadow: 0 8px 32px rgba(8,145,178,0.1); }
+.specIcon { font-size: 32px; margin-bottom: 14px; }
+.specCard h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+.specCard p { font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 16px; }
+.specLink { font-size: 13px; font-weight: 700; color: #0891B2; text-decoration: none; }
+.specLink:hover { text-decoration: underline; }
+
+.whySection { padding: 80px 0; background: #F0FDFF; }
+.whyGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.whyLeft h2 { font-size: clamp(28px, 3vw, 40px); font-weight: 800; margin: 8px 0 16px; }
+.whyLeft p { font-size: 16px; color: #64748b; line-height: 1.7; margin-bottom: 28px; }
+.whyRight { display: flex; flex-direction: column; gap: 24px; }
+.whyCard { display: flex; gap: 18px; align-items: flex-start; background: #fff; border-radius: 14px; padding: 24px; box-shadow: 0 2px 12px rgba(8,145,178,0.06); }
+.whyIcon { font-size: 28px; flex-shrink: 0; }
+.whyTitle { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+.whyDesc { font-size: 14px; color: #64748b; line-height: 1.5; }
+
+.doctorsSection { padding: 80px 0; background: #fff; }
+.doctorsGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.doctorCard { border: 1px solid #E0F2FE; border-radius: 16px; padding: 32px; text-align: center; }
+.doctorAvatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #BAE6FD, #0891B2); display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 800; color: #fff; margin: 0 auto 16px; }
+.doctorName { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+.doctorSpec { font-size: 14px; color: #0891B2; font-weight: 600; margin-bottom: 12px; }
+.doctorMeta { display: flex; justify-content: center; gap: 8px; font-size: 13px; color: #94a3b8; margin-bottom: 20px; }
+
+.appointmentSection { padding: 80px 0; background: #F0FDFF; }
+.appointmentGrid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
+.appointmentGrid h2 { font-size: clamp(28px, 3vw, 40px); font-weight: 800; margin: 8px 0 16px; }
+.appointmentGrid p { font-size: 16px; color: #64748b; line-height: 1.7; margin-bottom: 24px; }
+.infoList { display: flex; flex-direction: column; gap: 12px; font-size: 14px; color: #64748b; }
+.apptForm { background: #fff; border-radius: 20px; padding: 36px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 4px 24px rgba(8,145,178,0.08); }
+.formRow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.apptForm input, .apptForm select, .apptForm textarea { padding: 12px 16px; border: 1.5px solid #E0F2FE; border-radius: 10px; font-size: 14px; color: #0f2942; outline: none; font-family: inherit; resize: none; transition: border-color 0.2s; }
+.apptForm input:focus, .apptForm select:focus, .apptForm textarea:focus { border-color: #0891B2; }
+.apptForm .btnTeal { width: 100%; text-align: center; padding: 14px; }
+
+.footer { background: #0f2942; padding: 28px 0; }
+.footerRow { display: flex; align-items: center; justify-content: space-between; }
+.footerLogo { font-size: 20px; font-weight: 800; color: #fff; }
+.footerLogo span { color: #38BDF8; }
+.footer p { font-size: 13px; color: #334155; }
+.footerLinks { display: flex; gap: 20px; }
+.footerLinks a { font-size: 13px; color: #334155; text-decoration: none; }
+.footerLinks a:hover { color: #38BDF8; }
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; padding: 40px 24px; }
+  .heroCard { display: none; }
+  .specialtiesGrid { grid-template-columns: 1fr 1fr; }
+  .whyGrid { grid-template-columns: 1fr; }
+  .doctorsGrid { grid-template-columns: 1fr; }
+  .appointmentGrid { grid-template-columns: 1fr; }
+  .footerRow { flex-direction: column; gap: 12px; text-align: center; }
+}

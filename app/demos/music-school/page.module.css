@@ -1,0 +1,64 @@
+.page{font-family:'Segoe UI',sans-serif;background:#0D0A1E;color:#e2d9f3;}
+.container{max-width:1100px;margin:0 auto;padding:0 24px;}
+.nav{display:flex;align-items:center;gap:28px;padding:0 40px;height:68px;background:rgba(13,10,30,0.95);border-bottom:1px solid rgba(139,92,246,0.15);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);}
+.back{font-size:13px;color:#8B5CF6;text-decoration:none;}
+.back:hover{text-decoration:underline;}
+.logo{font-size:20px;font-weight:900;letter-spacing:6px;color:#e2d9f3;margin-right:auto;}
+.links{display:flex;gap:28px;list-style:none;margin:0;padding:0;}
+.links a{font-size:12px;color:#4b3c6b;text-decoration:none;letter-spacing:2px;transition:color 0.2s;}
+.links a:hover{color:#8B5CF6;}
+.navCta{background:#8B5CF6;color:#fff;padding:9px 20px;border-radius:100px;font-size:13px;font-weight:700;text-decoration:none;transition:background 0.2s;}
+.navCta:hover{background:#7c3aed;}
+.hero{min-height:calc(100vh - 68px);display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:80px;gap:48px;position:relative;overflow:hidden;background:linear-gradient(160deg,#0D0A1E 50%,#130D2A 100%);}
+.heroGlow{position:absolute;top:-200px;left:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(139,92,246,0.12),transparent 60%);}
+.heroContent{position:relative;z-index:1;}
+.heroBadge{display:inline-flex;gap:8px;background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.3);color:#a78bfa;font-size:13px;font-weight:600;padding:6px 16px;border-radius:100px;margin-bottom:24px;}
+.heroContent h1{font-size:clamp(52px,8vw,96px);font-weight:900;line-height:0.9;letter-spacing:-3px;margin-bottom:24px;}
+.heroContent h1 span{background:linear-gradient(135deg,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.heroContent p{font-size:16px;color:#4b3c6b;line-height:1.7;max-width:420px;margin-bottom:36px;}
+.heroCtas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:40px;}
+.btnPurple{display:inline-block;background:#8B5CF6;color:#fff;padding:13px 28px;border-radius:100px;font-size:14px;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:background 0.2s;}
+.btnPurple:hover{background:#7c3aed;}
+.btnOutline{display:inline-block;background:transparent;color:#e2d9f3;padding:13px 28px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid rgba(139,92,246,0.3);transition:all 0.2s;}
+.btnOutline:hover{border-color:#8B5CF6;}
+.heroStats{display:flex;gap:28px;flex-wrap:wrap;}
+.hStat{display:flex;flex-direction:column;}
+.hStat strong{font-size:22px;font-weight:800;color:#e2d9f3;}
+.hStat span{font-size:12px;color:#4b3c6b;margin-top:2px;}
+.heroVisual{position:relative;z-index:1;display:flex;justify-content:center;}
+.noteGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
+.noteCell{aspect-ratio:1;background:rgba(139,92,246,calc(0.05 + var(--i) * 0.03));border:1px solid rgba(139,92,246,calc(0.1 + var(--i) * 0.02));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:28px;transition:transform 0.2s,background 0.2s;}
+.noteCell:hover{transform:scale(1.1);background:rgba(139,92,246,0.2);}
+.sectionHead{text-align:center;margin-bottom:48px;}
+.tag{font-size:11px;font-weight:700;letter-spacing:3px;color:#8B5CF6;display:block;margin-bottom:10px;}
+.sectionHead h2{font-size:clamp(28px,3vw,44px);font-weight:800;letter-spacing:-1px;}
+.programsSection{padding:80px 0;background:#130D2A;}
+.programsGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(139,92,246,0.1);}
+.programCard{background:#130D2A;padding:32px 24px;text-align:center;transition:background 0.2s;}
+.programCard:hover{background:#1a1235;}
+.programIcon{font-size:40px;margin-bottom:12px;}
+.programName{font-size:16px;font-weight:700;color:#e2d9f3;margin-bottom:6px;}
+.programLevel{font-size:12px;color:#4b3c6b;margin-bottom:16px;}
+.programBtn{font-size:12px;color:#8B5CF6;text-decoration:none;letter-spacing:1px;border-bottom:1px solid rgba(139,92,246,0.3);padding-bottom:2px;}
+.programBtn:hover{border-color:#8B5CF6;}
+.teachersSection{padding:80px 0;background:#0D0A1E;}
+.teachersGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.teacherCard{background:#130D2A;border:1px solid rgba(139,92,246,0.15);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:12px;}
+.teacherAvatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#8B5CF6,#EC4899);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:#fff;}
+.teacherName{font-size:18px;font-weight:700;color:#e2d9f3;}
+.teacherInst{font-size:13px;color:#8B5CF6;font-weight:600;}
+.teacherBio{font-size:14px;color:#4b3c6b;line-height:1.5;flex:1;}
+.enrollSection{padding:80px 0;background:#130D2A;}
+.enrollGrid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start;}
+.enrollGrid h2{font-size:clamp(28px,3vw,44px);font-weight:800;letter-spacing:-1px;margin:8px 0 16px;}
+.enrollGrid p{font-size:16px;color:#4b3c6b;line-height:1.7;margin-bottom:24px;}
+.info{display:flex;flex-direction:column;gap:12px;font-size:14px;color:#2a1e48;}
+.form{background:#0D0A1E;border:1px solid rgba(139,92,246,0.15);border-radius:20px;padding:36px;display:flex;flex-direction:column;gap:14px;}
+.form input,.form select{padding:13px 16px;background:#130D2A;border:1px solid rgba(139,92,246,0.2);color:#e2d9f3;font-size:14px;font-family:inherit;outline:none;border-radius:10px;transition:border-color 0.2s;}
+.form input:focus,.form select:focus{border-color:#8B5CF6;}
+.form select option{background:#130D2A;}
+.form .btnPurple{width:100%;text-align:center;border-radius:10px;padding:14px;}
+.footer{background:#070510;border-top:1px solid rgba(139,92,246,0.1);padding:28px;text-align:center;}
+.footerLogo{font-size:18px;font-weight:900;letter-spacing:6px;color:#e2d9f3;margin-bottom:8px;}
+.footer p{font-size:12px;color:#1a1030;}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding:48px 24px;}.heroVisual{display:none;}.programsGrid{grid-template-columns:repeat(2,1fr);}.teachersGrid{grid-template-columns:1fr;}.enrollGrid{grid-template-columns:1fr;}.links{display:none;}}

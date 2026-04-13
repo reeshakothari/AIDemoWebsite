@@ -1,0 +1,87 @@
+.page { font-family: 'Segoe UI', sans-serif; background: #0a0a0a; color: #fff; }
+.container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+.nav { display: flex; align-items: center; gap: 28px; padding: 0 40px; height: 68px; background: #0a0a0a; border-bottom: 2px solid #FFE500; position: sticky; top: 0; z-index: 100; }
+.back { font-size: 13px; color: #FFE500; text-decoration: none; font-weight: 700; letter-spacing: 1px; }
+.back:hover { text-decoration: underline; }
+.logo { font-size: 22px; font-weight: 900; letter-spacing: 3px; color: #fff; margin-right: auto; }
+.logo span { color: #FFE500; }
+.links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
+.links a { font-size: 12px; font-weight: 700; letter-spacing: 2px; color: #666; text-decoration: none; transition: color 0.2s; }
+.links a:hover { color: #FFE500; }
+.navCta { background: #FFE500; color: #0a0a0a; padding: 10px 22px; border-radius: 4px; font-size: 12px; font-weight: 900; text-decoration: none; letter-spacing: 1.5px; }
+.navCta:hover { background: #fff; }
+
+.hero { min-height: calc(100vh - 68px); display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; background: linear-gradient(135deg, #0a0a0a 50%, #111 100%); }
+.heroText { display: flex; flex-direction: column; justify-content: center; padding: 80px; z-index: 2; }
+.tag { font-size: 11px; font-weight: 700; letter-spacing: 3px; color: #FFE500; margin-bottom: 24px; text-transform: uppercase; }
+.heroText h1 { font-size: clamp(52px, 7vw, 96px); font-weight: 900; line-height: 0.95; letter-spacing: -2px; margin-bottom: 28px; }
+.heroText h1 span { color: #FFE500; }
+.heroText p { font-size: 16px; color: #666; line-height: 1.7; max-width: 400px; margin-bottom: 40px; }
+.heroCtas { display: flex; gap: 16px; flex-wrap: wrap; }
+
+.heroRight { display: flex; align-items: center; justify-content: center; padding: 40px; z-index: 2; }
+.statsGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: #FFE500; border: 2px solid #FFE500; }
+.statBox { background: #0a0a0a; padding: 40px 32px; display: flex; flex-direction: column; align-items: center; }
+.statV { font-size: 42px; font-weight: 900; color: #FFE500; letter-spacing: -1px; }
+.statL { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #555; text-transform: uppercase; margin-top: 4px; }
+
+.diagonal { position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: #111; clip-path: polygon(0 100%, 100% 0, 100% 100%); }
+
+.btnYellow { display: inline-block; background: #FFE500; color: #0a0a0a; padding: 14px 32px; border-radius: 4px; font-size: 13px; font-weight: 900; text-decoration: none; letter-spacing: 1.5px; border: none; cursor: pointer; transition: transform 0.2s; width: 100%; text-align: center; }
+.btnYellow:hover { transform: translateY(-2px); background: #fff; }
+.btnGhost { display: inline-block; background: transparent; color: #fff; padding: 14px 32px; border-radius: 4px; font-size: 13px; font-weight: 900; text-decoration: none; letter-spacing: 1.5px; border: 2px solid #333; transition: border-color 0.2s; }
+.btnGhost:hover { border-color: #FFE500; color: #FFE500; }
+.btnOutline { display: inline-block; background: transparent; color: #FFE500; padding: 12px 28px; border-radius: 4px; font-size: 12px; font-weight: 900; text-decoration: none; letter-spacing: 1.5px; border: 2px solid #FFE500; transition: all 0.2s; width: 100%; text-align: center; }
+.btnOutline:hover { background: #FFE500; color: #0a0a0a; }
+
+.sectionHead { margin-bottom: 48px; }
+.sectionTag { font-size: 11px; font-weight: 700; letter-spacing: 3px; color: #FFE500; display: block; margin-bottom: 10px; }
+.sectionHead h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 900; letter-spacing: -1px; }
+
+.classesSection { padding: 80px 0; background: #111; }
+.classGrid { display: flex; flex-direction: column; gap: 2px; }
+.classCard { display: grid; grid-template-columns: 80px 1fr auto auto; align-items: center; gap: 24px; background: #0a0a0a; padding: 20px 28px; border-left: 3px solid #1a1a1a; transition: border-color 0.2s; }
+.classCard:hover { border-color: #FFE500; }
+.classTime { font-size: 18px; font-weight: 900; color: #FFE500; font-variant-numeric: tabular-nums; }
+.className { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.classTrainer { font-size: 12px; color: #555; letter-spacing: 1px; }
+.classSpots { font-size: 12px; color: #555; white-space: nowrap; }
+.bookBtn { background: transparent; border: 1px solid #333; color: #FFE500; padding: 8px 20px; border-radius: 3px; font-size: 11px; font-weight: 900; letter-spacing: 1.5px; text-decoration: none; transition: all 0.2s; }
+.bookBtn:hover { background: #FFE500; color: #0a0a0a; border-color: #FFE500; }
+
+.plansSection { padding: 80px 0; background: #0a0a0a; }
+.plansGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: #1a1a1a; border: 1px solid #1a1a1a; }
+.planCard { background: #0a0a0a; padding: 40px 32px; display: flex; flex-direction: column; gap: 20px; position: relative; }
+.planHighlight { background: #111; }
+.popularBadge { position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: #FFE500; color: #0a0a0a; font-size: 10px; font-weight: 900; letter-spacing: 2px; padding: 4px 16px; }
+.planName { font-size: 12px; font-weight: 700; letter-spacing: 3px; color: #555; text-transform: uppercase; }
+.planPrice { font-size: 48px; font-weight: 900; color: #FFE500; line-height: 1; }
+.planPrice span { font-size: 16px; color: #555; font-weight: 400; }
+.planPerks { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.planPerks li { font-size: 13px; color: #888; }
+
+.joinSection { padding: 80px 0; background: #111; }
+.joinGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.joinGrid h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 900; letter-spacing: -1px; margin: 16px 0; }
+.joinGrid p { font-size: 16px; color: #555; line-height: 1.7; margin-bottom: 32px; }
+.joinPerks { display: flex; flex-direction: column; gap: 12px; font-size: 13px; color: #444; }
+.joinForm { display: flex; flex-direction: column; gap: 12px; }
+.joinForm input, .joinForm select { padding: 14px 16px; background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 4px; color: #fff; font-size: 14px; font-family: inherit; outline: none; transition: border-color 0.2s; }
+.joinForm input:focus, .joinForm select:focus { border-color: #FFE500; }
+.joinForm select option { background: #0a0a0a; }
+
+.footer { background: #000; border-top: 2px solid #FFE500; padding: 32px; text-align: center; }
+.footerLogo { font-size: 24px; font-weight: 900; letter-spacing: 3px; margin-bottom: 8px; }
+.footerLogo span { color: #FFE500; }
+.footer p { font-size: 12px; color: #333; letter-spacing: 1px; }
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .heroRight { display: none; }
+  .heroText { padding: 48px 24px; }
+  .classCard { grid-template-columns: 60px 1fr; }
+  .classSpots, .bookBtn { display: none; }
+  .plansGrid { grid-template-columns: 1fr; }
+  .joinGrid { grid-template-columns: 1fr; }
+}

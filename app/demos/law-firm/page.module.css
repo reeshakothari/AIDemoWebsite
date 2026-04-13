@@ -1,0 +1,72 @@
+.page { font-family: Georgia, 'Times New Roman', serif; background: #0A1628; color: #e8dcc8; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.nav { display: flex; align-items: center; gap: 28px; padding: 0 40px; height: 72px; background: #060e1c; border-bottom: 1px solid rgba(201,168,76,0.2); position: sticky; top: 0; z-index: 100; }
+.back { font-size: 12px; color: #C9A84C; text-decoration: none; font-family: 'Segoe UI', sans-serif; }
+.back:hover { text-decoration: underline; }
+.logo { font-size: 14px; font-weight: 400; letter-spacing: 3px; color: #e8dcc8; margin-right: auto; font-family: 'Segoe UI', sans-serif; }
+.logo span { color: #C9A84C; }
+.links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
+.links a { font-size: 12px; color: #6b7280; text-decoration: none; letter-spacing: 1px; font-family: 'Segoe UI', sans-serif; transition: color 0.2s; }
+.links a:hover { color: #C9A84C; }
+.navCta { background: transparent; border: 1px solid #C9A84C; color: #C9A84C; padding: 9px 20px; font-size: 12px; letter-spacing: 1px; text-decoration: none; font-family: 'Segoe UI', sans-serif; transition: all 0.2s; }
+.navCta:hover { background: #C9A84C; color: #0A1628; }
+.hero { min-height: calc(100vh - 72px); display: flex; align-items: center; padding: 80px; background: linear-gradient(160deg, #0A1628 60%, #0d1e38 100%); position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 40%; background: linear-gradient(180deg, rgba(201,168,76,0.04), transparent); border-left: 1px solid rgba(201,168,76,0.08); }
+.heroInner { max-width: 680px; position: relative; z-index: 1; }
+.heroRule { width: 60px; height: 2px; background: #C9A84C; margin-bottom: 24px; }
+.heroEst { font-size: 11px; letter-spacing: 4px; color: #C9A84C; font-family: 'Segoe UI', sans-serif; margin-bottom: 28px; }
+.heroInner h1 { font-size: clamp(42px, 6vw, 80px); font-weight: 400; line-height: 1.1; margin-bottom: 28px; color: #f0e8d8; }
+.heroSub { font-size: 16px; color: #6b7280; line-height: 1.8; margin-bottom: 40px; font-family: 'Segoe UI', sans-serif; max-width: 520px; }
+.heroCtas { display: flex; gap: 16px; margin-bottom: 64px; flex-wrap: wrap; }
+.btnGold { display: inline-block; background: #C9A84C; color: #0A1628; padding: 14px 32px; font-size: 12px; letter-spacing: 2px; text-decoration: none; font-family: 'Segoe UI', sans-serif; font-weight: 700; border: none; cursor: pointer; transition: background 0.2s; }
+.btnGold:hover { background: #e0bf5a; }
+.btnBorder { display: inline-block; background: transparent; color: #e8dcc8; padding: 14px 32px; font-size: 12px; letter-spacing: 2px; text-decoration: none; font-family: 'Segoe UI', sans-serif; border: 1px solid rgba(232,220,200,0.3); transition: all 0.2s; }
+.btnBorder:hover { border-color: #C9A84C; color: #C9A84C; }
+.heroStats { display: flex; gap: 48px; flex-wrap: wrap; }
+.heroStat span { display: block; font-size: 36px; font-weight: 400; color: #C9A84C; margin-bottom: 4px; }
+.heroStat p { font-size: 12px; letter-spacing: 1px; color: #4a5568; font-family: 'Segoe UI', sans-serif; margin: 0; }
+.sectionHead { margin-bottom: 56px; }
+.sectionHead h2 { font-size: clamp(28px, 3vw, 44px); font-weight: 400; color: #f0e8d8; margin-top: 12px; }
+.tag { font-size: 10px; font-weight: 700; letter-spacing: 4px; color: #C9A84C; font-family: 'Segoe UI', sans-serif; }
+.areas { padding: 100px 0; background: #0d1e38; border-top: 1px solid rgba(201,168,76,0.1); }
+.areasGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201,168,76,0.1); }
+.areaCard { background: #0d1e38; padding: 40px 32px; transition: background 0.2s; }
+.areaCard:hover { background: #0A1628; }
+.areaIcon { font-size: 28px; margin-bottom: 16px; }
+.areaCard h3 { font-size: 18px; font-weight: 400; color: #f0e8d8; margin-bottom: 12px; }
+.areaCard p { font-size: 14px; color: #4a5568; line-height: 1.7; margin-bottom: 20px; font-family: 'Segoe UI', sans-serif; }
+.areaLink { font-size: 12px; letter-spacing: 1px; color: #C9A84C; text-decoration: none; font-family: 'Segoe UI', sans-serif; }
+.areaLink:hover { text-decoration: underline; }
+.attorneys { padding: 100px 0; background: #0A1628; }
+.attyGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.attyCard { border: 1px solid rgba(201,168,76,0.15); padding: 40px 32px; text-align: center; }
+.attyImg { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #1e3a5f, #2d5a8e); display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 400; color: #C9A84C; margin: 0 auto 20px; border: 2px solid rgba(201,168,76,0.3); }
+.attyName { font-size: 20px; font-weight: 400; color: #f0e8d8; margin-bottom: 6px; }
+.attyTitle { font-size: 11px; letter-spacing: 2px; color: #C9A84C; font-family: 'Segoe UI', sans-serif; margin-bottom: 10px; }
+.attyArea { font-size: 13px; color: #4a5568; font-family: 'Segoe UI', sans-serif; margin-bottom: 12px; }
+.attyWins { font-size: 13px; color: #C9A84C; font-family: 'Segoe UI', sans-serif; }
+.consult { padding: 100px 0; background: #0d1e38; }
+.consultGrid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
+.consultGrid h2 { font-size: clamp(28px, 3vw, 44px); font-weight: 400; color: #f0e8d8; margin: 12px 0 16px; }
+.consultGrid p { font-size: 15px; color: #4a5568; line-height: 1.8; margin-bottom: 32px; font-family: 'Segoe UI', sans-serif; }
+.consultInfo { display: flex; flex-direction: column; gap: 12px; font-size: 13px; color: #374151; font-family: 'Segoe UI', sans-serif; }
+.form { display: flex; flex-direction: column; gap: 14px; }
+.formRow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form input, .form select, .form textarea { padding: 13px 16px; background: #0A1628; border: 1px solid rgba(201,168,76,0.2); color: #e8dcc8; font-size: 14px; font-family: 'Segoe UI', sans-serif; outline: none; resize: none; transition: border-color 0.2s; }
+.form input:focus, .form select:focus, .form textarea:focus { border-color: #C9A84C; }
+.form select option { background: #0A1628; }
+.form .btnGold { text-align: center; padding: 16px; font-size: 13px; }
+.disclaimer { font-size: 11px; color: #374151; text-align: center; font-family: 'Segoe UI', sans-serif; margin: 0; }
+.footer { background: #060e1c; border-top: 1px solid rgba(201,168,76,0.1); padding: 32px 0; }
+.footerRow { display: flex; justify-content: space-between; align-items: center; }
+.footerLogo { font-size: 13px; letter-spacing: 3px; color: #e8dcc8; }
+.footerLogo span { color: #C9A84C; }
+.footer p { font-size: 12px; color: #1f2937; font-family: 'Segoe UI', sans-serif; }
+@media (max-width: 900px) {
+  .hero { padding: 48px 24px; }
+  .areasGrid { grid-template-columns: 1fr 1fr; }
+  .attyGrid { grid-template-columns: 1fr; }
+  .consultGrid { grid-template-columns: 1fr; }
+  .footerRow { flex-direction: column; gap: 12px; text-align: center; }
+  .links { display: none; }
+}
