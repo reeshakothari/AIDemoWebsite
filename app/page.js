@@ -218,6 +218,22 @@ const categories = [
     gradient: 'linear-gradient(135deg, #d1d5db, #9ca3af)',
     slug: 'moving',
   },
+  {
+    icon: '❤️',
+    title: 'Nonprofit Organization',
+    desc: 'Heartfelt, impact-driven pages for charities and nonprofits.',
+    color: '#fb923c',
+    gradient: 'linear-gradient(135deg, #fb923c, #e85d4a)',
+    slug: 'nonprofit',
+  },
+  {
+    icon: '🖋️',
+    title: 'Tattoo Studio',
+    desc: 'Bold, edgy pages for tattoo artists and piercing studios.',
+    color: '#00F5FF',
+    gradient: 'linear-gradient(135deg, #00F5FF, #0891B2)',
+    slug: 'tattoo-studio',
+  },
 ]
 
 export default function Home() {
@@ -247,7 +263,14 @@ export default function Home() {
   )
 }
 
-const liveslugs = ['beauty-salon', 'restaurant']
+const liveslugs = [
+  'beauty-salon','restaurant','fitness-gym','real-estate','photography',
+  'medical','law-firm','travel','fashion','tech-startup','wedding',
+  'education','jewelry','yoga-wellness','bakery','hotel','barbershop',
+  'pet-care','dental','food-delivery','car-dealership','interior-design',
+  'music-school','landscaping','event-management','cleaning','moving',
+  'nonprofit','tattoo-studio',
+]
 
 function CategoryCard({ icon, title, desc, color, gradient, slug }) {
   const isLive = liveslugs.includes(slug)
