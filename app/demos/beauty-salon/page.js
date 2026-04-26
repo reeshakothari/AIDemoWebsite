@@ -57,6 +57,7 @@ export default function BeautySalonPage() {
           <li><a href="#testimonials">Reviews</a></li>
         </ul>
         <a href="#booking" className={styles.navCta}>Book Now</a>
+        <a href="/demos/beauty-salon/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
 
       {/* HERO */}

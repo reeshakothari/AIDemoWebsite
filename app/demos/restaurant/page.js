@@ -60,6 +60,7 @@ export default function RestaurantPage() {
           <li><a href="#reviews">Reviews</a></li>
         </ul>
         <a href="#reserve" className={styles.navCta}>Reserve a Table</a>
+        <a href="/demos/restaurant/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
 
       {/* HERO */}

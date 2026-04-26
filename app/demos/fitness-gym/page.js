@@ -28,6 +28,7 @@ export default function FitnessPage() {
           <li><a href="#join">Join</a></li>
         </ul>
         <a href="#join" className={styles.navCta}>GET STARTED</a>
+        <a href="/demos/fitness-gym/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
 
       <section className={styles.hero}>

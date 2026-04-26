@@ -76,6 +76,8 @@
   transition: background 0.2s;
 }
 .navCta:hover { background: #e0aa7a; }
+.navAdmin { background: transparent; color: #c9956c; border: 1.5px solid rgba(201,149,108,0.5); padding: 9px 18px; border-radius: 6px; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+.navAdmin:hover { background: rgba(201,149,108,0.12); border-color: #c9956c; }
 
 /* ─── Buttons ──────────────────────────────────── */
 .btnPrimary {

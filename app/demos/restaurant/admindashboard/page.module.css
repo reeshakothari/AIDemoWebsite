@@ -1,0 +1,97 @@
+.shell{display:flex;min-height:100vh;background:#0f0c08;font-family:'Segoe UI',sans-serif;color:#e8d5b0;}
+.sidebar{width:240px;background:#1a1208;border-right:1px solid rgba(201,149,108,0.15);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;flex-shrink:0;}
+.sidebarBrand{padding:28px 24px 20px;border-bottom:1px solid rgba(201,149,108,0.1);}
+.brandLogo{font-size:18px;font-weight:900;color:#c9956c;letter-spacing:-0.5px;}
+.brandSub{font-size:11px;color:rgba(232,213,176,0.3);letter-spacing:2px;margin-top:2px;}
+.sideNav{flex:1;padding:16px 12px;display:flex;flex-direction:column;gap:4px;}
+.navItem{display:flex;align-items:center;gap:12px;padding:11px 16px;border-radius:10px;font-size:14px;font-weight:500;color:rgba(232,213,176,0.5);border:none;background:transparent;cursor:pointer;text-align:left;transition:all 0.15s;}
+.navItem:hover{background:rgba(201,149,108,0.08);color:#c9956c;}
+.navActive{background:rgba(201,149,108,0.1);color:#c9956c;font-weight:700;}
+.navIcon{font-size:16px;width:20px;text-align:center;}
+.sidebarFooter{padding:20px 24px;border-top:1px solid rgba(201,149,108,0.1);}
+.viewSite{font-size:13px;color:#c9956c;text-decoration:none;}
+.viewSite:hover{text-decoration:underline;}
+
+.main{flex:1;display:flex;flex-direction:column;min-width:0;}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:20px 32px;background:#150f08;border-bottom:1px solid rgba(201,149,108,0.12);}
+.pageTitle{font-size:20px;font-weight:800;color:#e8d5b0;letter-spacing:-0.5px;}
+.pageDate{font-size:12px;color:rgba(232,213,176,0.35);margin-top:2px;}
+.topbarRight{display:flex;align-items:center;gap:16px;}
+.notifBell{font-size:18px;position:relative;cursor:pointer;}
+.notifBell span{position:absolute;top:-6px;right:-8px;background:#c9956c;color:#fff;font-size:9px;font-weight:700;border-radius:50%;width:16px;height:16px;display:flex;align-items:center;justify-content:center;}
+.avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#c9956c,#8b5e3c);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+
+.content{padding:28px 32px;flex:1;}
+.statsRow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px;}
+.statCard{background:#1a1208;border:1px solid rgba(201,149,108,0.12);border-top:3px solid var(--a);border-radius:14px;padding:20px 22px;}
+.statVal{font-size:28px;font-weight:900;color:#e8d5b0;letter-spacing:-1px;}
+.statLabel{font-size:12px;font-weight:600;color:rgba(232,213,176,0.5);margin-top:4px;letter-spacing:0.5px;}
+.statSub{font-size:11px;color:rgba(232,213,176,0.3);margin-top:6px;}
+
+.twoCol{display:grid;grid-template-columns:1fr 360px;gap:20px;}
+.colRight{display:flex;flex-direction:column;gap:20px;}
+
+.panel{background:#1a1208;border:1px solid rgba(201,149,108,0.12);border-radius:14px;padding:22px;margin-bottom:20px;}
+.panel:last-child{margin-bottom:0;}
+.panelHead{display:flex;align-items:center;justify-content:space-between;font-size:15px;font-weight:700;color:#e8d5b0;margin-bottom:18px;}
+.badge{background:rgba(201,149,108,0.15);color:#c9956c;font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;}
+
+.table{width:100%;border-collapse:collapse;font-size:13px;}
+.table th{text-align:left;font-size:11px;font-weight:700;letter-spacing:1px;color:rgba(232,213,176,0.3);padding:0 10px 10px 0;border-bottom:1px solid rgba(201,149,108,0.1);}
+.table td{padding:12px 10px 12px 0;border-bottom:1px solid rgba(201,149,108,0.06);vertical-align:middle;color:rgba(232,213,176,0.8);}
+.table tr:last-child td{border:none;}
+.time{font-size:12px;color:rgba(232,213,176,0.4);white-space:nowrap;}
+.bold{font-weight:600;color:#e8d5b0;}
+.note{font-size:12px;color:rgba(232,213,176,0.4);font-style:italic;}
+.tableTag{background:rgba(201,149,108,0.12);color:#c9956c;font-size:11px;font-weight:700;padding:3px 8px;border-radius:4px;}
+.status{font-size:11px;font-weight:700;padding:4px 10px;border-radius:100px;}
+.seated{background:rgba(251,191,36,0.15);color:#f59e0b;}
+.confirmed{background:rgba(52,211,153,0.15);color:#34d399;}
+.pending{background:rgba(239,68,68,0.15);color:#ef4444;}
+.editRowBtn{font-size:12px;color:#c9956c;border:1px solid rgba(201,149,108,0.2);background:transparent;padding:4px 12px;border-radius:6px;cursor:pointer;}
+.editRowBtn:hover{background:rgba(201,149,108,0.08);}
+.addBtn{font-size:12px;font-weight:700;background:rgba(201,149,108,0.1);color:#c9956c;border:1px solid rgba(201,149,108,0.2);padding:7px 16px;border-radius:8px;cursor:pointer;transition:all 0.15s;margin-top:8px;}
+.addBtn:hover{background:rgba(201,149,108,0.2);}
+
+.dishRow{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(201,149,108,0.07);}
+.dishRow:last-child{border:none;}
+.dishName{font-size:13px;color:rgba(232,213,176,0.8);}
+.dishStats{display:flex;gap:12px;align-items:center;}
+.dishStats span{font-size:11px;color:rgba(232,213,176,0.35);}
+.dishStats strong{font-size:13px;color:#c9956c;}
+
+.tableMiniGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px;}
+.tableMini{border-radius:8px;padding:10px;text-align:center;}
+.tableId{font-size:11px;font-weight:700;}
+.tableCap{font-size:10px;opacity:0.6;margin-top:2px;}
+.t_occupied{background:rgba(239,68,68,0.15);color:#ef4444;}
+.t_reserved{background:rgba(251,191,36,0.15);color:#f59e0b;}
+.t_available{background:rgba(52,211,153,0.12);color:#34d399;}
+
+.tableFloor{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;}
+.tableBlock{border-radius:12px;padding:16px;text-align:center;}
+.tableBlockId{font-size:15px;font-weight:800;}
+.tableBlockCap{font-size:11px;opacity:0.6;margin-top:3px;}
+.tableBlockStatus{font-size:10px;font-weight:700;letter-spacing:1px;margin-top:6px;text-transform:uppercase;}
+
+.tableLegend{display:flex;gap:20px;font-size:12px;}
+.legOcc{color:#ef4444;}
+.legRes{color:#f59e0b;}
+.legAvail{color:#34d399;}
+
+.editLayout{display:flex;flex-direction:column;gap:20px;}
+.fieldGroup{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+.fieldGroup:last-child{margin-bottom:0;}
+.fieldGroup label{font-size:12px;font-weight:700;color:rgba(232,213,176,0.4);letter-spacing:0.5px;}
+.fieldGroup input,.fieldGroup textarea{padding:10px 14px;border:1px solid rgba(201,149,108,0.2);border-radius:10px;font-size:14px;color:#e8d5b0;background:#0f0c08;font-family:inherit;outline:none;resize:vertical;transition:border-color 0.2s;}
+.fieldGroup input:focus,.fieldGroup textarea:focus{border-color:#c9956c;}
+
+.serviceRow{display:grid;grid-template-columns:1fr 100px;gap:10px;margin-bottom:10px;}
+.serviceNameInput,.servicePriceInput{padding:10px 14px;border:1px solid rgba(201,149,108,0.2);border-radius:10px;font-size:14px;color:#e8d5b0;background:#0f0c08;font-family:inherit;outline:none;transition:border-color 0.2s;}
+.serviceNameInput:focus,.servicePriceInput:focus{border-color:#c9956c;}
+
+.saveRow{display:flex;gap:14px;align-items:center;}
+.saveBtn{background:#c9956c;color:#fff;font-size:14px;font-weight:700;padding:13px 28px;border-radius:10px;border:none;cursor:pointer;transition:background 0.2s;}
+.saveBtn:hover{background:#a87a52;}
+.previewBtn{font-size:14px;color:#c9956c;text-decoration:none;font-weight:600;}
+.previewBtn:hover{text-decoration:underline;}

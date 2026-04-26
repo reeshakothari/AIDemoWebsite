@@ -75,6 +75,8 @@
 }
 
 .navCta:hover { background: #c9956c; }
+.navAdmin { background: transparent; color: #c9956c; border: 1.5px solid #c9956c; padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+.navAdmin:hover { background: #c9956c; color: #fff; }
 
 /* ─── Buttons ──────────────────────────────────── */
 .btnPrimary {

@@ -11,6 +11,8 @@
 .links a:hover { color: #FFE500; }
 .navCta { background: #FFE500; color: #0a0a0a; padding: 10px 22px; border-radius: 4px; font-size: 12px; font-weight: 900; text-decoration: none; letter-spacing: 1.5px; }
 .navCta:hover { background: #fff; }
+.navAdmin { background: transparent; color: #FFE500; border: 1.5px solid rgba(255,229,0,0.5); padding: 9px 18px; border-radius: 4px; font-size: 12px; font-weight: 900; letter-spacing: 1px; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+.navAdmin:hover { background: rgba(255,229,0,0.08); border-color: #FFE500; }
 
 .hero { min-height: calc(100vh - 68px); display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; background: linear-gradient(135deg, #0a0a0a 50%, #111 100%); }
 .heroText { display: flex; flex-direction: column; justify-content: center; padding: 80px; z-index: 2; }
