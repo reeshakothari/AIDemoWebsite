@@ -10,6 +10,7 @@ export default function DentalPage(){
         <div className={styles.logo}>Bright<span>Smile</span></div>
         <ul className={styles.links}><li><a href="#treatments">Treatments</a></li><li><a href="#appt">Appointments</a></li></ul>
         <a href="#appt" className={styles.navCta}>Book Free Consult</a>
+        <a href="/demos/dental/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
       <section className={styles.hero}>
         <div className={styles.heroContent}>

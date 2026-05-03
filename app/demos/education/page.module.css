@@ -89,3 +89,5 @@
 .footerLogo span{color:#818CF8;}
 .footer p{font-size:13px;color:#1e293b;}
 @media(max-width:900px){.hero{grid-template-columns:1fr;padding:48px 24px;}.heroRight{display:none;}.coursesGrid{grid-template-columns:1fr 1fr;}.whyGrid{grid-template-columns:1fr 1fr;}.links{display:none;}}
+.navAdmin { background: transparent; color: #2563eb; border: 1.5px solid #2563eb; padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+.navAdmin:hover { background: #2563eb; color: #fff; }

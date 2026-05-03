@@ -10,6 +10,7 @@ export default function CarPage(){
         <div className={styles.logo}>APEX <span>MOTORS</span></div>
         <ul className={styles.links}><li><a href="#inventory">Inventory</a></li><li><a href="#testdrive">Test Drive</a></li><li><a href="#finance">Finance</a></li></ul>
         <a href="#testdrive" className={styles.navCta}>Book Test Drive</a>
+        <a href="/demos/car-dealership/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
       <section className={styles.hero}>
         <div className={styles.heroContent}>

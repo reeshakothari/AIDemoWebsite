@@ -78,3 +78,5 @@
 .footerLogo span{color:#00F5FF;}
 .footer p{font-size:11px;color:rgba(232,232,232,0.15);letter-spacing:1px;}
 @media(max-width:900px){.hero{grid-template-columns:1fr;padding:48px 24px;}.heroRight{display:none;}.artistsGrid{grid-template-columns:1fr 1fr;}.stylesGrid{grid-template-columns:repeat(2,1fr);}.bookGrid{grid-template-columns:1fr;}.fRow{grid-template-columns:1fr;}.links{display:none;}}
+.navAdmin { background: transparent; color: #dc2626; border: 1.5px solid #dc2626; padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+.navAdmin:hover { background: #dc2626; color: #fff; }

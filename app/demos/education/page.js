@@ -11,6 +11,7 @@ export default function EducationPage(){
         <div className={styles.logo}>Learn<span>Spark</span></div>
         <ul className={styles.links}><li><a href="#courses">Courses</a></li><li><a href="#courses">Categories</a></li><li><a href="#enroll">Pricing</a></li></ul>
         <div className={styles.navRight}><a href="#enroll" className={styles.navSecondary}>Sign In</a><a href="#enroll" className={styles.navCta}>Start Learning Free</a></div>
+        <a href="/demos/education/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
       <section className={styles.hero}>
         <div className={styles.heroLeft}>

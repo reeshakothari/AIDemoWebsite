@@ -9,6 +9,7 @@ export default function LandscapingPage(){
         <div className={styles.logo}>Green<span>Craft</span></div>
         <ul className={styles.links}><li><a href="#services">Services</a></li><li><a href="#quote">Free Quote</a></li></ul>
         <a href="#quote" className={styles.navCta}>Get Free Quote</a>
+        <a href="/demos/landscaping/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
       <section className={styles.hero}>
         <div className={styles.heroContent}>

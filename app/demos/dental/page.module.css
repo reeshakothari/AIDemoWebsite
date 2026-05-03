@@ -60,3 +60,5 @@
 .footerLogo span{color:#34D399;}
 .footer p{font-size:13px;color:#1a4a48;}
 @media(max-width:900px){.hero{grid-template-columns:1fr;padding:48px 24px;}.heroRight{display:none;}.treatGrid{grid-template-columns:1fr 1fr;}.apptGrid{grid-template-columns:1fr;}.footerRow{flex-direction:column;gap:12px;text-align:center;}.links{display:none;}}
+.navAdmin { background: transparent; color: #0284c7; border: 1.5px solid #0284c7; padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+.navAdmin:hover { background: #0284c7; color: #fff; }

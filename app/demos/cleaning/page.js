@@ -26,6 +26,7 @@ export default function CleaningPage(){
           <li><a href="#book">Book Now</a></li>
         </ul>
         <a href="#book" className={styles.navCta}>Get a Free Quote</a>
+        <a href="/demos/cleaning/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
 
       <section className={styles.hero}>

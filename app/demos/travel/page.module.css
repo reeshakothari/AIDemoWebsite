@@ -74,3 +74,5 @@
   .footerRow { flex-direction: column; gap: 12px; text-align: center; }
   .links { display: none; }
 }
+.navAdmin { background: transparent; color: #f97316; border: 1.5px solid #f97316; padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+.navAdmin:hover { background: #f97316; color: #fff; }

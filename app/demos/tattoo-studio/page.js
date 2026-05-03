@@ -28,6 +28,7 @@ export default function TattooPage(){
           <li><a href="#book">Book</a></li>
         </ul>
         <a href="#book" className={styles.navCta}>Book a Session</a>
+        <a href="/demos/tattoo-studio/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
 
       <section className={styles.hero}>

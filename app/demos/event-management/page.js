@@ -26,6 +26,7 @@ export default function EventManagementPage(){
           <li><a href="#contact">Contact</a></li>
         </ul>
         <a href="#contact" className={styles.navCta}>Plan My Event</a>
+        <a href="/demos/event-management/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
 
       <section className={styles.hero}>

@@ -69,3 +69,5 @@
 .footerLogo span{color:#EF4444;}
 .footer p{font-size:12px;color:#3a1a1a;}
 @media(max-width:900px){.hero{grid-template-columns:1fr;padding:48px 24px;}.heroImgs{display:none;}.catsGrid{grid-template-columns:repeat(4,1fr);}.restsGrid{grid-template-columns:1fr 1fr;}.appGrid{grid-template-columns:1fr;}}
+.navAdmin { background: transparent; color: #f97316; border: 1.5px solid #f97316; padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+.navAdmin:hover { background: #f97316; color: #fff; }

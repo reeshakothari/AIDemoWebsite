@@ -28,6 +28,7 @@ export default function TechStartupPage() {
         <div className={styles.navActions}>
           <a href="#demo" className={styles.navSecondary}>Sign In</a>
           <a href="#demo" className={styles.navCta}>Start Free Trial</a>
+        <a href="/demos/tech-startup/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
         </div>
       </nav>
       <section className={styles.hero}>

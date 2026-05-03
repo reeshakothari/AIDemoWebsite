@@ -21,6 +21,7 @@ export default function JewelryPage(){
         <div className={styles.logo}>AURUM</div>
         <ul className={styles.links}><li><a href="#collections">Collections</a></li><li><a href="#shop">Shop</a></li><li><a href="#bespoke">Bespoke</a></li></ul>
         <div className={styles.navIcons}><span>🔍</span><span>♡</span><span>🛍</span></div>
+        <a href="/demos/jewelry/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
       <section className={styles.hero}>
         <div className={styles.heroLeft}>

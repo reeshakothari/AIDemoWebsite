@@ -10,6 +10,7 @@ export default function YogaPage(){
         <div className={styles.logo}>serenova</div>
         <ul className={styles.links}><li><a href="#classes">Classes</a></li><li><a href="#offerings">Offerings</a></li><li><a href="#book">Book</a></li></ul>
         <a href="#book" className={styles.navCta}>Book a Class</a>
+        <a href="/demos/yoga-wellness/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
       <section className={styles.hero}>
         <div className={styles.heroBg}/>

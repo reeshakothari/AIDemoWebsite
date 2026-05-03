@@ -63,3 +63,5 @@
 .footerLogo em{font-style:italic;font-weight:300;color:#B85C38;}
 .footer p{font-size:12px;color:#2a1e12;}
 @media(max-width:900px){.hero{grid-template-columns:1fr;}.heroRight{display:none;}.heroLeft{padding:48px 24px;}.workGrid{grid-template-columns:1fr;}.workFeat{grid-row:span 1;}.servGrid{grid-template-columns:1fr;}.servCards{grid-template-columns:1fr;}.enquireGrid{grid-template-columns:1fr;}.links{display:none;}}
+.navAdmin { background: transparent; color: #b45309; border: 1.5px solid #b45309; padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+.navAdmin:hover { background: #b45309; color: #fff; }

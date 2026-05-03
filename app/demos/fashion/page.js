@@ -19,6 +19,7 @@ export default function FashionPage() {
         <div className={styles.navIcons}>
           <span>🔍</span><span>♡</span><span>🛍 (0)</span>
         </div>
+        <a href="/demos/fashion/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
       <section className={styles.hero}>
         <div className={styles.heroLeft}>

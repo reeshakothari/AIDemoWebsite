@@ -1,0 +1,106 @@
+.shell{display:flex;min-height:100vh;background:#0a0a0a;font-family:'Segoe UI',sans-serif;color:#f5f0e8;}
+.sidebar{width:232px;background:#111;border-right:1px solid rgba(249,115,22,0.1);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;flex-shrink:0;}
+.brand{padding:28px 22px 18px;border-bottom:1px solid rgba(249,115,22,0.1);}
+.brandName{font-size:17px;font-weight:900;color:#f5f0e8;letter-spacing:-0.5px;}
+.brandName span{color:#f97316;}
+.brandSub{font-size:10px;color:rgba(249,115,22,0.3);letter-spacing:3px;margin-top:3px;}
+.sideNav{flex:1;padding:14px 10px;display:flex;flex-direction:column;gap:2px;overflow-y:auto;}
+.navItem{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;font-size:13.5px;font-weight:500;color:rgba(245,240,232,0.3);border:none;background:transparent;cursor:pointer;text-align:left;width:100%;transition:all 0.15s;}
+.navItem:hover{background:rgba(249,115,22,0.08);color:#f97316;}
+.navActive{background:rgba(249,115,22,0.12);color:#f97316;font-weight:700;border-left:3px solid #f97316;}
+.navIcon{font-size:15px;width:18px;text-align:center;flex-shrink:0;}
+.navBadge{margin-left:auto;background:#f97316;color:#fff;font-size:10px;font-weight:700;border-radius:100px;padding:2px 7px;}
+.sideFooter{padding:18px 22px;border-top:1px solid rgba(249,115,22,0.1);}
+.viewSite{font-size:13px;color:rgba(249,115,22,0.4);text-decoration:none;}
+.viewSite:hover{color:#f97316;}
+.main{flex:1;display:flex;flex-direction:column;min-width:0;overflow:hidden;}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;background:#111;border-bottom:1px solid rgba(249,115,22,0.1);flex-shrink:0;}
+.pageTitle{font-size:19px;font-weight:800;letter-spacing:-0.3px;}
+.pageDate{font-size:12px;color:rgba(245,240,232,0.25);margin-top:2px;}
+.topbarRight{display:flex;align-items:center;gap:14px;}
+.notif{font-size:18px;position:relative;cursor:pointer;}
+.notif span{position:absolute;top:-5px;right:-8px;background:#f97316;color:#fff;font-size:9px;font-weight:700;border-radius:50%;width:15px;height:15px;display:flex;align-items:center;justify-content:center;}
+.avatar{width:34px;height:34px;border-radius:8px;background:#f97316;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.content{padding:24px 28px;flex:1;overflow-y:auto;}
+.statsRow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px;}
+.statCard{background:#111;border:1px solid rgba(249,115,22,0.08);border-top:3px solid var(--a);border-radius:12px;padding:18px 20px;}
+.statVal{font-size:26px;font-weight:900;letter-spacing:-0.5px;}
+.statLabel{font-size:11px;font-weight:700;color:rgba(245,240,232,0.25);margin-top:5px;letter-spacing:0.5px;}
+.statSub{font-size:11px;color:rgba(245,240,232,0.15);margin-top:4px;}
+.twoCol{display:grid;grid-template-columns:1fr 300px;gap:18px;}
+.stackCol{display:flex;flex-direction:column;gap:18px;}
+.panel{background:#111;border:1px solid rgba(249,115,22,0.07);border-radius:12px;padding:20px;margin-bottom:18px;}
+.panel:last-child{margin-bottom:0;}
+.panelHead{display:flex;align-items:center;justify-content:space-between;font-size:14px;font-weight:700;margin-bottom:16px;}
+.chip{background:rgba(249,115,22,0.1);color:#f97316;font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;}
+.table{width:100%;border-collapse:collapse;font-size:12.5px;}
+.table th{text-align:left;font-size:10.5px;font-weight:700;letter-spacing:1px;color:rgba(245,240,232,0.2);padding:0 10px 8px 0;border-bottom:1px solid rgba(249,115,22,0.07);}
+.table td{padding:11px 10px 11px 0;border-bottom:1px solid rgba(249,115,22,0.04);vertical-align:middle;color:rgba(245,240,232,0.55);}
+.table tr:last-child td{border:none;}
+.muted{color:rgba(245,240,232,0.25);font-size:12px;}
+.bold{font-weight:600;color:#f5f0e8;}
+.price{font-weight:700;color:#f97316;}
+.tag{font-size:10px;font-weight:700;padding:3px 9px;border-radius:100px;}
+.confirmed{background:rgba(52,211,153,0.12);color:#34d399;}
+.preparing{background:rgba(249,115,22,0.12);color:#f97316;}
+.delivering{background:rgba(99,102,241,0.12);color:#818cf8;}
+.delivered{background:rgba(100,116,139,0.15);color:#94a3b8;}
+.cancelled{background:rgba(239,68,68,0.12);color:#ef4444;}
+.ldnew{background:rgba(99,102,241,0.12);color:#818cf8;}
+.ldcontacted{background:rgba(249,115,22,0.12);color:#f97316;}
+.ldqualified{background:rgba(52,211,153,0.12);color:#34d399;}
+.ldbooked{background:rgba(249,115,22,0.18);color:#f97316;}
+.ldlost{background:rgba(239,68,68,0.12);color:#ef4444;}
+.catChip{background:rgba(249,115,22,0.08);color:rgba(249,115,22,0.7);font-size:10px;font-weight:600;padding:2px 8px;border-radius:6px;}
+.actions{display:flex;gap:6px;}
+.rowBtn{font-size:11px;color:rgba(245,240,232,0.4);border:1px solid rgba(249,115,22,0.08);background:transparent;padding:3px 10px;border-radius:6px;cursor:pointer;}
+.rowBtn:hover{background:rgba(249,115,22,0.06);color:#f97316;}
+.addBtn{font-size:12px;font-weight:700;background:#f97316;color:#fff;border:none;padding:7px 14px;border-radius:8px;cursor:pointer;}
+.filterRow{display:flex;gap:6px;}
+.filterBtn{font-size:11px;font-weight:600;padding:4px 12px;border-radius:100px;border:1px solid rgba(249,115,22,0.08);background:transparent;color:rgba(245,240,232,0.2);cursor:pointer;}
+.filterBtn:hover{border-color:#f97316;color:#f97316;}
+.filterActive{background:rgba(249,115,22,0.1);border-color:#f97316;color:#f97316;}
+.statusSelect{font-size:11px;padding:3px 8px;border:1px solid rgba(249,115,22,0.1);border-radius:6px;color:#f5f0e8;background:#111;cursor:pointer;outline:none;}
+
+/* Edit Website */
+.editShell{display:grid;grid-template-columns:220px 1fr;border:1px solid rgba(249,115,22,0.08);border-radius:12px;overflow:hidden;min-height:560px;}
+.editNav{background:#111;border-right:1px solid rgba(249,115,22,0.08);padding:20px 14px;display:flex;flex-direction:column;gap:4px;}
+.editNavTitle{font-size:10px;font-weight:700;letter-spacing:2px;color:rgba(249,115,22,0.3);margin-bottom:10px;padding:0 8px;}
+.editNavItem{display:flex;flex-direction:column;align-items:flex-start;padding:12px;border-radius:8px;border:none;background:transparent;cursor:pointer;text-align:left;gap:2px;transition:all 0.15s;}
+.editNavItem:hover{background:rgba(249,115,22,0.05);}
+.editNavActive{background:rgba(249,115,22,0.1);}
+.editNavLabel{font-size:13px;font-weight:600;color:rgba(245,240,232,0.5);}
+.editNavActive .editNavLabel{color:#f97316;}
+.editNavSub{font-size:11px;color:rgba(249,115,22,0.25);}
+.editSaveArea{margin-top:auto;padding-top:16px;border-top:1px solid rgba(249,115,22,0.08);display:flex;flex-direction:column;gap:10px;}
+.saveBtn{background:#f97316;color:#fff;font-size:13px;font-weight:700;padding:11px;border-radius:8px;border:none;cursor:pointer;width:100%;}
+.saveBtn:hover{background:#ea6c0a;}
+.previewLink{font-size:12px;color:rgba(249,115,22,0.3);text-decoration:none;text-align:center;}
+.previewLink:hover{color:#f97316;}
+.editCanvas{background:#0a0a0a;padding:32px;overflow-y:auto;}
+.ecHero{background:linear-gradient(135deg,#111,#1a0d00);border-radius:12px;padding:56px 48px;border:1px solid rgba(249,115,22,0.12);}
+.ecBadge{display:inline-block;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:100px;padding:4px 16px;margin-bottom:20px;}
+.ecBadge .inlineInput{font-size:13px;color:#f97316;font-weight:600;}
+.ecH1{margin-bottom:14px;}
+.ecP{margin-bottom:24px;max-width:440px;}
+.ecBtns{display:flex;gap:12px;}
+.ecBtn1{background:#f97316;border-radius:8px;padding:12px 28px;}
+.ecBtn1 .inlineInput{color:#fff;font-weight:700;font-size:14px;text-align:center;}
+.ecBtn2{background:transparent;border:1px solid rgba(249,115,22,0.3);border-radius:8px;padding:12px 28px;}
+.ecBtn2 .inlineInput{color:#f97316;font-weight:600;font-size:14px;text-align:center;}
+.ecMenu{background:#111;border-radius:12px;padding:36px;border:1px solid rgba(249,115,22,0.06);}
+.ecSectionLabel{font-size:11px;font-weight:700;letter-spacing:2px;color:#f97316;margin-bottom:20px;}
+.ecMenuGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.ecMenuCard{background:#0a0a0a;border:1px solid rgba(249,115,22,0.1);border-radius:8px;padding:16px;}
+.ecMenuName{font-size:14px;font-weight:700;color:#f5f0e8;}
+.ecMenuPrice{font-size:13px;color:#f97316;font-weight:700;margin-top:4px;}
+.ecContact{background:#111;border-radius:12px;padding:36px;border:1px solid rgba(249,115,22,0.06);}
+.ecContactGrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.ecContactBlock{background:#0a0a0a;border-radius:8px;padding:16px;border:1px solid rgba(249,115,22,0.08);}
+.ecFieldLabel{font-size:10px;font-weight:700;letter-spacing:1.5px;color:rgba(249,115,22,0.3);margin-bottom:8px;}
+.ecContactInput{font-size:14px;color:#f5f0e8;}
+.inlineInput{background:transparent;border:none;border-bottom:1.5px dashed rgba(249,115,22,0.2);color:inherit;font-size:inherit;font-weight:inherit;font-family:'Segoe UI',sans-serif;width:100%;outline:none;resize:none;transition:border-color 0.2s;display:block;line-height:inherit;}
+.inlineInput:hover{border-bottom-color:rgba(249,115,22,0.45);}
+.inlineInput:focus{border-bottom-color:#f97316;border-bottom-style:solid;}
+.inlineH1{font-size:44px;font-weight:900;color:#f5f0e8;letter-spacing:-2px;line-height:1.0;}
+.inlineP{font-size:15px;color:rgba(245,240,232,0.3);line-height:1.7;}

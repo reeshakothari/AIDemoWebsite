@@ -31,6 +31,7 @@ export default function PhotographyPage() {
           <li><a href="#contact">Contact</a></li>
         </ul>
         <a href="#contact" className={styles.navCta}>Book a Session</a>
+        <a href="/demos/photography/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
 
       <section className={styles.hero}>

@@ -10,6 +10,7 @@ export default function WeddingPage(){
         <div className={styles.logo}>Ivory <em>&</em> Bloom</div>
         <ul className={styles.links}><li><a href="#services">Services</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#enquire">Enquire</a></li></ul>
         <a href="#enquire" className={styles.navCta}>Begin Your Journey</a>
+        <a href="/demos/wedding/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
       <section className={styles.hero}>
         <div className={styles.heroLeft}>

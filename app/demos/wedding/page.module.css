@@ -74,3 +74,5 @@
 .footerLogo em{font-style:italic;color:#8faf72;}
 .footer p{font-size:13px;color:#4a3030;}
 @media(max-width:900px){.hero{grid-template-columns:1fr;}.heroRight{display:none;}.heroLeft{padding:48px 24px;}.servicesGrid{grid-template-columns:1fr 1fr;}.portfolioGrid{grid-template-columns:1fr;}.portfolioFeat{grid-row:span 1;}.enquireGrid{grid-template-columns:1fr;}.statsBar{flex-wrap:wrap;}.links{display:none;}}
+.navAdmin { background: transparent; color: #b56b5a; border: 1.5px solid #b56b5a; padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+.navAdmin:hover { background: #b56b5a; color: #fff; }

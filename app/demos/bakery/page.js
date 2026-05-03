@@ -9,6 +9,7 @@ export default function BakeryPage(){
         <div className={styles.logo}>The Golden Crust</div>
         <ul className={styles.links}><li><a href="#menu">Menu</a></li><li><a href="#story">Our Story</a></li><li><a href="#order">Order</a></li></ul>
         <a href="#order" className={styles.navCta}>Order Online</a>
+        <a href="/demos/bakery/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
       <section className={styles.hero}>
         <div className={styles.heroContent}>

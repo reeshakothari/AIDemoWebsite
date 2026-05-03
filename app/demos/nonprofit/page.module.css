@@ -79,3 +79,5 @@
 .footerLogo span{color:#F97316;}
 .footer p{font-size:12px;color:rgba(255,255,255,0.2);}
 @media(max-width:900px){.hero{grid-template-columns:1fr;padding:48px 24px;}.impactWall{grid-template-columns:1fr 1fr;}.causesGrid{grid-template-columns:1fr;}.storiesGrid{grid-template-columns:1fr;}.tiersGrid{grid-template-columns:1fr;}.volunteerBox{flex-direction:column;text-align:center;}.links{display:none;}}
+.navAdmin { background: transparent; color: #1d4ed8; border: 1.5px solid #1d4ed8; padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+.navAdmin:hover { background: #1d4ed8; color: #fff; }

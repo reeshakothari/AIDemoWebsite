@@ -60,3 +60,5 @@
 .footerLogo{font-size:22px;font-weight:800;font-style:italic;color:#F3D9B1;margin-bottom:8px;}
 .footer p{font-size:13px;color:#4a3020;}
 @media(max-width:900px){.hero{grid-template-columns:1fr;}.heroRight{display:none;}.heroContent{padding:48px 24px;}.menuGrid{grid-template-columns:1fr;}.storyGrid{grid-template-columns:1fr;}.storyImg{display:none;}.orderGrid{grid-template-columns:1fr;}.links{display:none;}}
+.navAdmin { background: transparent; color: #a34a1a; border: 1.5px solid #a34a1a; padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+.navAdmin:hover { background: #a34a1a; color: #fff; }

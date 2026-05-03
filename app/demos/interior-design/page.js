@@ -10,6 +10,7 @@ export default function InteriorPage(){
         <div className={styles.logo}>STUDIO <em>FORMA</em></div>
         <ul className={styles.links}><li><a href="#work">Work</a></li><li><a href="#services">Services</a></li><li><a href="#enquire">Enquire</a></li></ul>
         <a href="#enquire" className={styles.navCta}>Start a Project</a>
+        <a href="/demos/interior-design/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
       <section className={styles.hero}>
         <div className={styles.heroLeft}>

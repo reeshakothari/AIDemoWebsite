@@ -10,6 +10,7 @@ export default function FoodDeliveryPage(){
         <div className={styles.logo}>Zip<span>Eats</span></div>
         <div className={styles.navSearch}><input type="text" placeholder="🔍 Search restaurants or cuisines..."/></div>
         <div className={styles.navRight}><a href="#" className={styles.navLink}>Sign In</a><a href="#" className={styles.navCta}>🛒 Cart (0)</a></div>
+        <a href="/demos/food-delivery/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
       <section className={styles.hero}>
         <div className={styles.heroContent}>

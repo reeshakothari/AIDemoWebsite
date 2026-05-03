@@ -25,6 +25,7 @@ export default function LawFirmPage() {
           <li><a href="#consult">Consultation</a></li>
         </ul>
         <a href="#consult" className={styles.navCta}>Free Consultation</a>
+        <a href="/demos/law-firm/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
       <section className={styles.hero}>
         <div className={styles.heroInner}>

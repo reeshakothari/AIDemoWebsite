@@ -34,6 +34,7 @@ export default function RealEstatePage() {
           <li><a href="#contact">Contact</a></li>
         </ul>
         <a href="#contact" className={styles.navCta}>Book a Viewing</a>
+        <a href="/demos/real-estate/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
 
       <section className={styles.hero}>

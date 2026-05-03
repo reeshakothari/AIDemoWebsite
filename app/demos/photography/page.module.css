@@ -94,3 +94,5 @@
   .contactGrid { grid-template-columns: 1fr; }
   .footer { flex-direction: column; gap: 12px; text-align: center; }
 }
+.navAdmin { background: transparent; color: #d97706; border: 1.5px solid #d97706; padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+.navAdmin:hover { background: #d97706; color: #fff; }

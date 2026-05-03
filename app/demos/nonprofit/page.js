@@ -34,6 +34,7 @@ export default function NonprofitPage(){
           <li><a href="#donate">Donate</a></li>
         </ul>
         <a href="#donate" className={styles.navCta}>Donate Now</a>
+        <a href="/demos/nonprofit/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
 
       <section className={styles.hero}>

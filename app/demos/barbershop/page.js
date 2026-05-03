@@ -10,6 +10,7 @@ export default function BarbershopPage(){
         <div className={styles.logo}>KING'S <span>CUT</span></div>
         <ul className={styles.links}><li><a href="#services">Services</a></li><li><a href="#barbers">Barbers</a></li><li><a href="#book">Book</a></li></ul>
         <a href="#book" className={styles.navCta}>BOOK APPOINTMENT</a>
+        <a href="/demos/barbershop/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
       <section className={styles.hero}>
         <div className={styles.heroBg}/>

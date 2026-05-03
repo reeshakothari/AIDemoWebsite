@@ -9,6 +9,7 @@ export default function PetCarePage(){
         <div className={styles.logo}>Paw<span>some</span></div>
         <ul className={styles.links}><li><a href="#services">Services</a></li><li><a href="#book">Book</a></li></ul>
         <a href="#book" className={styles.navCta}>Book Appointment</a>
+        <a href="/demos/pet-care/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
       <section className={styles.hero}>
         <div className={styles.heroLeft}>

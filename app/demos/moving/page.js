@@ -26,6 +26,7 @@ export default function MovingPage(){
           <li><a href="#quote">Get Quote</a></li>
         </ul>
         <a href="#quote" className={styles.navCta}>Free Quote</a>
+        <a href="/demos/moving/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
 
       <section className={styles.hero}>

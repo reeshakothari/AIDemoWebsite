@@ -80,3 +80,5 @@
   .footerGrid { grid-template-columns: 1fr 1fr; }
   .links { display: none; }
 }
+.navAdmin { background: transparent; color: #ec4899; border: 1.5px solid #ec4899; padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+.navAdmin:hover { background: #ec4899; color: #fff; }

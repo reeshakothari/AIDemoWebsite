@@ -10,6 +10,7 @@ export default function HotelPage(){
         <div className={styles.logo}>THE GRANDEUR</div>
         <ul className={styles.links}><li><a href="#rooms">Rooms</a></li><li><a href="#amenities">Amenities</a></li><li><a href="#reserve">Reserve</a></li></ul>
         <a href="#reserve" className={styles.navCta}>Reserve Now</a>
+        <a href="/demos/hotel/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
       <section className={styles.hero}>
         <div className={styles.heroOverlay}/>

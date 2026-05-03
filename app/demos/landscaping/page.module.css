@@ -56,3 +56,5 @@
 .footerLogo span{color:#86efac;}
 .footer p{font-size:12px;color:#1a3a1a;}
 @media(max-width:900px){.hero{grid-template-columns:1fr;padding:48px 24px;}.heroImgGrid{display:grid;grid-template-columns:1fr 1fr;}.statsBar{grid-template-columns:1fr 1fr;}.servGrid{grid-template-columns:1fr 1fr;}.quoteGrid{grid-template-columns:1fr;}.links{display:none;}}
+.navAdmin { background: transparent; color: #16a34a; border: 1.5px solid #16a34a; padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+.navAdmin:hover { background: #16a34a; color: #fff; }

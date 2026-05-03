@@ -34,6 +34,7 @@ export default function MedicalPage() {
           <li><a href="#appointment">Appointments</a></li>
         </ul>
         <a href="#appointment" className={styles.navCta}>Book Appointment</a>
+        <a href="/demos/medical/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
 
       <section className={styles.hero}>

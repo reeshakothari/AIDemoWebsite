@@ -26,6 +26,7 @@ export default function TravelPage() {
           <li><a href="#plan">Plan Trip</a></li>
         </ul>
         <a href="#plan" className={styles.navCta}>Plan My Trip</a>
+        <a href="/demos/travel/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
       <section className={styles.hero}>
         <div className={styles.heroOverlay} />

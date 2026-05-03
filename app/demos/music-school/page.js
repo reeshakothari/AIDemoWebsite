@@ -10,6 +10,7 @@ export default function MusicSchoolPage(){
         <div className={styles.logo}>RESONANCE</div>
         <ul className={styles.links}><li><a href="#programs">Programs</a></li><li><a href="#teachers">Teachers</a></li><li><a href="#enroll">Enroll</a></li></ul>
         <a href="#enroll" className={styles.navCta}>Free Trial Lesson</a>
+        <a href="/demos/music-school/admindashboard" className={styles.navAdmin}>Admin Demo →</a>
       </nav>
       <section className={styles.hero}>
         <div className={styles.heroGlow}/>

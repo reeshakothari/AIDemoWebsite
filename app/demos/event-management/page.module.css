@@ -72,3 +72,5 @@
 .footerLogo span{color:#FF3CAC;}
 .footer p{font-size:12px;color:rgba(240,238,255,0.15);}
 @media(max-width:900px){.hero h1{letter-spacing:-1px;}.eventsGrid{grid-template-columns:1fr 1fr;}.pkgGrid{grid-template-columns:1fr;}.contactGrid{grid-template-columns:1fr;}.row{grid-template-columns:1fr;}.links{display:none;}}
+.navAdmin { background: transparent; color: #8b5cf6; border: 1.5px solid #8b5cf6; padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+.navAdmin:hover { background: #8b5cf6; color: #fff; }
