@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>vAI — Get Started</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:           #F7F6F3;
+  --surface:      #FFFFFF;
+  --border:       #E4E2DC;
+  --border-hover: #C8C4BC;
+  --text:         #1A1A18;
+  --text-muted:   #706F6A;
+  --text-faint:   #AAA9A4;
+  --accent:       #5D5CE8;
+  --accent-light: #EEEEFD;
+  --accent-border:rgba(93,92,232,0.28);
+  --accent-glow:  rgba(93,92,232,0.10);
+  --red:          #DC2626;
+  --red-light:    #FEF2F2;
+  --red-border:   rgba(220,38,38,0.2);
+  --green:        #16A34A;
+  --green-light:  #F0FDF4;
+  --orange:       #D97706;
+  --shadow-sm:    0 1px 4px rgba(0,0,0,0.06),0 2px 8px rgba(0,0,0,0.04);
+  --shadow-md:    0 4px 16px rgba(0,0,0,0.08),0 2px 6px rgba(0,0,0,0.04);
+  --radius:       10px;
+  --radius-lg:    14px;
+  --radius-xl:    18px;
+}
+html,body { height:100%; font-family:'Plus Jakarta Sans',sans-serif; background:var(--bg); color:var(--text); font-size:15px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+
+/* ─── LAYOUT ─── */
+.shell { display:flex; flex-direction:column; min-height:100vh; }
+
+/* ─── HEADER ─── */
+.header { position:sticky; top:0; z-index:100; background:rgba(247,246,243,0.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); padding:0 2rem; height:58px; display:flex; align-items:center; }
+.header-inner { display:flex; align-items:center; gap:2rem; width:100%; max-width:920px; margin:0 auto; }
+.logo { font-size:15px; font-weight:800; letter-spacing:-0.3px; color:var(--text); }
+.logo span { color:var(--accent); }
+.progress-wrap { flex:1; display:flex; align-items:center; gap:1rem; }
+.progress-bar-outer { flex:1; height:3px; background:var(--border); border-radius:99px; overflow:hidden; max-width:240px; }
+.progress-bar-fill { height:100%; background:var(--accent); border-radius:99px; transition:width 0.4s cubic-bezier(.4,0,.2,1); }
+.progress-label { font-size:12px; font-weight:600; color:var(--text-muted); white-space:nowrap; }
+.phase-badge { font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:3px 9px; border-radius:99px; }
+.phase-badge.mandatory { background:var(--red-light); color:var(--red); border:1px solid var(--red-border); }
+.phase-badge.optional  { background:var(--accent-light); color:var(--accent); border:1px solid var(--accent-border); }
+.phase-badge.ai        { background:#FFF7ED; color:var(--orange); border:1px solid rgba(217,119,6,0.3); }
+
+/* ─── MAIN ─── */
+.main { flex:1; display:flex; flex-direction:column; align-items:center; padding:3.5rem 1.5rem 7rem; }
+.step-wrap { width:100%; max-width:620px; }
+.step-content { animation:stepIn 0.28s cubic-bezier(.4,0,.2,1); }
+@keyframes stepIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+
+/* ─── STEP HEADER ─── */
+.step-eyebrow { font-size:11px; font-weight:700; letter-spacing:1.8px; text-transform:uppercase; color:var(--text-faint); margin-bottom:0.75rem; }
+.step-heading { font-size:1.65rem; font-weight:800; color:var(--text); line-height:1.25; letter-spacing:-0.4px; margin-bottom:0.5rem; }
+.step-sub { font-size:13.5px; color:var(--text-muted); margin-bottom:2rem; line-height:1.6; max-width:500px; }
+.required-notice { display:flex; align-items:center; gap:7px; background:var(--red-light); border:1px solid var(--red-border); border-radius:8px; padding:8px 12px; margin-bottom:1.25rem; font-size:12px; color:var(--red); font-weight:600; }
+
+/* ─── INPUT BASE ─── */
+.field-label { font-size:12.5px; font-weight:600; color:var(--text-muted); margin-bottom:6px; }
+.field-input { width:100%; background:var(--surface); border:1.5px solid var(--border); border-radius:var(--radius); padding:13px 16px; font-family:inherit; font-size:15px; color:var(--text); outline:none; transition:all 0.2s; }
+.field-input:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-glow); }
+.field-input::placeholder { color:var(--text-faint); }
+.field-hint { font-size:12px; color:var(--text-faint); margin-top:6px; }
+textarea.field-input { resize:vertical; min-height:110px; line-height:1.6; }
+.other-text-row { margin-top:12px; }
+
+/* ─── OPTION CARDS ─── */
+.options-grid { display:flex; flex-direction:column; gap:9px; margin-top:0.25rem; }
+.options-grid.two-col { display:grid; grid-template-columns:1fr 1fr; gap:9px; }
+.options-grid.three-col { display:grid; grid-template-columns:1fr 1fr 1fr; gap:9px; }
+.opt-card { background:var(--surface); border:1.5px solid var(--border); border-radius:var(--radius-lg); padding:1rem 1.1rem; cursor:pointer; transition:all 0.18s; display:flex; align-items:flex-start; gap:12px; }
+.opt-card:hover { border-color:var(--border-hover); box-shadow:var(--shadow-sm); }
+.opt-card.selected { border-color:var(--accent); background:var(--accent-light); box-shadow:0 0 0 3px var(--accent-glow); }
+.opt-card-icon { font-size:20px; width:40px; height:40px; background:var(--bg); border-radius:9px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.opt-card.selected .opt-card-icon { background:rgba(93,92,232,0.12); }
+.opt-card-body { flex:1; min-width:0; }
+.opt-card-label { font-size:14px; font-weight:700; color:var(--text); }
+.opt-card-desc { font-size:12px; color:var(--text-muted); margin-top:2px; line-height:1.4; }
+.opt-card-check { width:20px; height:20px; border-radius:50%; border:2px solid var(--border); flex-shrink:0; margin-top:1px; transition:all 0.18s; display:flex; align-items:center; justify-content:center; }
+.opt-card.selected .opt-card-check { background:var(--accent); border-color:var(--accent); }
+.opt-card.selected .opt-card-check::after { content:'✓'; color:#fff; font-size:10px; font-weight:700; }
+
+/* ─── CHIPS ─── */
+.chips-field { display:flex; flex-wrap:wrap; gap:8px; }
+.chip-opt { display:flex; align-items:center; gap:7px; padding:8px 14px; background:var(--surface); border:1.5px solid var(--border); border-radius:99px; font-size:13px; font-weight:500; color:var(--text-muted); cursor:pointer; transition:all 0.15s; font-family:inherit; }
+.chip-opt:hover { border-color:var(--border-hover); color:var(--text); }
+.chip-opt.selected { background:var(--accent-light); border-color:var(--accent-border); color:var(--accent); font-weight:600; }
+.chip-check { font-size:10px; display:none; font-weight:700; }
+.chip-opt.selected .chip-check { display:inline; }
+
+/* ─── YES / NO ─── */
+.yes-no-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:0.25rem; }
+.yn-card { background:var(--surface); border:1.5px solid var(--border); border-radius:var(--radius-xl); padding:1.5rem 1.25rem; cursor:pointer; transition:all 0.18s; text-align:center; display:flex; flex-direction:column; align-items:center; gap:8px; }
+.yn-card:hover { border-color:var(--border-hover); box-shadow:var(--shadow-md); transform:translateY(-2px); }
+.yn-card.selected { border-color:var(--accent); background:var(--accent-light); box-shadow:0 0 0 3px var(--accent-glow); }
+.yn-icon { font-size:2rem; }
+.yn-label { font-size:15px; font-weight:700; color:var(--text); }
+
+/* ─── PLATFORM HANDLES ─── */
+.platforms-list { display:flex; flex-direction:column; gap:10px; }
+.platform-row { background:var(--surface); border:1.5px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; transition:border-color 0.2s; }
+.platform-row.checked { border-color:var(--accent); }
+.platform-toggle { display:flex; align-items:center; gap:12px; padding:12px 16px; cursor:pointer; }
+.platform-checkbox { width:20px; height:20px; border-radius:6px; border:2px solid var(--border); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all 0.18s; }
+.platform-row.checked .platform-checkbox { background:var(--accent); border-color:var(--accent); }
+.platform-row.checked .platform-checkbox::after { content:'✓'; color:#fff; font-size:11px; font-weight:700; }
+.platform-icon-label { display:flex; align-items:center; gap:8px; flex:1; }
+.platform-emoji { font-size:18px; }
+.platform-name { font-size:13.5px; font-weight:600; color:var(--text); }
+.platform-handle-wrap { display:none; padding:0 16px 12px; animation:fadeIn 0.2s ease; }
+.platform-row.checked .platform-handle-wrap { display:flex; align-items:center; gap:8px; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(-4px)} to{opacity:1;transform:translateY(0)} }
+.platform-prefix { font-size:12.5px; font-weight:600; color:var(--text-muted); white-space:nowrap; }
+.platform-input { flex:1; background:var(--bg); border:1px solid var(--border); border-radius:7px; padding:8px 12px; font-family:inherit; font-size:13.5px; color:var(--text); outline:none; transition:all 0.2s; }
+.platform-input:focus { border-color:var(--accent); background:var(--surface); box-shadow:0 0 0 2px var(--accent-glow); }
+.platform-input::placeholder { color:var(--text-faint); }
+
+/* ─── FILE UPLOAD ─── */
+.upload-zone { border:2px dashed var(--border); border-radius:var(--radius-lg); padding:2rem; text-align:center; background:var(--surface); transition:all 0.2s; cursor:pointer; }
+.upload-zone:hover, .upload-zone.dragover { border-color:var(--accent); background:var(--accent-light); }
+.upload-icon { font-size:2.5rem; margin-bottom:0.75rem; }
+.upload-title { font-size:14px; font-weight:700; color:var(--text); margin-bottom:4px; }
+.upload-sub { font-size:12px; color:var(--text-muted); margin-bottom:1rem; }
+.upload-btn { display:inline-flex; align-items:center; gap:6px; font-family:inherit; font-size:12.5px; font-weight:600; color:var(--accent); background:var(--accent-light); border:1.5px solid var(--accent-border); padding:7px 16px; border-radius:7px; cursor:pointer; transition:all 0.15s; }
+.upload-btn:hover { background:var(--accent); color:#fff; }
+.upload-formats { font-size:11px; color:var(--text-faint); margin-top:0.75rem; }
+.file-previews { display:flex; flex-wrap:wrap; gap:10px; margin-top:1rem; }
+.file-preview-item { position:relative; }
+.file-preview-img { width:72px; height:72px; object-fit:cover; border-radius:8px; border:1px solid var(--border); }
+.file-preview-doc { width:72px; height:72px; background:var(--bg); border:1px solid var(--border); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; }
+.file-doc-icon { font-size:22px; }
+.file-doc-name { font-size:9px; color:var(--text-muted); text-align:center; padding:0 4px; word-break:break-all; line-height:1.2; max-width:72px; }
+.file-remove { position:absolute; top:-6px; right:-6px; width:18px; height:18px; background:var(--red); color:#fff; border-radius:50%; font-size:10px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-weight:700; border:2px solid var(--surface); }
+.file-count-label { font-size:12px; color:var(--text-muted); margin-top:8px; }
+
+/* ─── INDUSTRY GRID ─── */
+.ind-search { display:flex; align-items:center; gap:10px; background:var(--surface); border:1.5px solid var(--border); border-radius:var(--radius); padding:10px 14px; margin-bottom:1rem; transition:border-color 0.2s; }
+.ind-search:focus-within { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-glow); }
+.ind-search input { border:none; outline:none; font-family:inherit; font-size:13.5px; color:var(--text); background:transparent; flex:1; }
+.ind-search input::placeholder { color:var(--text-faint); }
+.cat-row { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:1.25rem; }
+.cat-tag { font-size:12px; font-weight:500; padding:5px 13px; border-radius:99px; border:1.5px solid var(--border); background:var(--surface); color:var(--text-muted); cursor:pointer; font-family:inherit; transition:all 0.15s; }
+.cat-tag:hover { border-color:var(--border-hover); color:var(--text); }
+.cat-tag.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+.ind-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin-bottom:1.25rem; }
+.ind-card { background:var(--surface); border:1.5px solid var(--border); border-radius:var(--radius-lg); padding:1rem; cursor:pointer; transition:all 0.18s; display:flex; flex-direction:column; gap:6px; }
+.ind-card:hover { border-color:var(--border-hover); box-shadow:var(--shadow-sm); transform:translateY(-1px); }
+.ind-card.selected { border-color:var(--accent); background:var(--accent-light); box-shadow:0 0 0 3px var(--accent-glow); }
+.ind-card.other-card { border-style:dashed; }
+.ind-emoji { font-size:22px; width:42px; height:42px; background:var(--bg); border-radius:10px; display:flex; align-items:center; justify-content:center; }
+.ind-card.selected .ind-emoji { background:rgba(93,92,232,0.12); }
+.ind-name { font-size:13px; font-weight:700; color:var(--text); line-height:1.3; }
+.ind-cat { font-size:10.5px; font-weight:500; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.5px; }
+.other-input-wrap { background:var(--surface); border:1.5px solid var(--accent); border-radius:var(--radius); padding:12px 14px; margin-top:4px; display:none; }
+.other-input-wrap.show { display:block; }
+.other-input { width:100%; border:none; outline:none; font-family:inherit; font-size:14px; color:var(--text); background:transparent; }
+.other-input::placeholder { color:var(--text-faint); }
+.ind-footer { display:flex; align-items:center; justify-content:space-between; padding-top:0.5rem; }
+.ind-sel-label { font-size:13px; color:var(--text-muted); }
+.ind-sel-label strong { color:var(--text); }
+.btn-ind-continue { font-family:inherit; font-size:14px; font-weight:700; color:#fff; background:var(--text); border:none; padding:13px 32px; border-radius:10px; cursor:pointer; transition:all 0.18s; opacity:0.3; pointer-events:none; }
+.btn-ind-continue.enabled { opacity:1; pointer-events:all; }
+.btn-ind-continue.enabled:hover { background:#000; transform:translateY(-1px); box-shadow:0 4px 16px rgba(0,0,0,0.15); }
+
+/* ─── FOOTER ─── */
+.footer { position:fixed; bottom:0; left:0; right:0; background:rgba(247,246,243,0.95); backdrop-filter:blur(12px); border-top:1px solid var(--border); padding:1rem 2rem; display:flex; align-items:center; justify-content:space-between; z-index:100; }
+.btn-back { font-family:inherit; font-size:14px; font-weight:600; color:var(--text-muted); background:none; border:none; cursor:pointer; padding:10px 4px; display:flex; align-items:center; gap:6px; transition:color 0.15s; }
+.btn-back:hover { color:var(--text); }
+.footer-right { display:flex; align-items:center; gap:12px; }
+.btn-skip-step { font-family:inherit; font-size:13px; font-weight:500; color:var(--text-faint); background:none; border:1.5px solid var(--border); border-radius:8px; cursor:pointer; padding:10px 16px; transition:all 0.15s; }
+.btn-skip-step:hover { color:var(--text-muted); border-color:var(--border-hover); }
+.btn-continue { font-family:inherit; font-size:14px; font-weight:700; color:#fff; background:var(--text); border:none; padding:12px 28px; border-radius:10px; cursor:pointer; transition:all 0.18s; display:flex; align-items:center; gap:8px; }
+.btn-continue:hover { background:#000; transform:translateY(-1px); box-shadow:0 4px 16px rgba(0,0,0,0.15); }
+.btn-continue:disabled { opacity:0.3; pointer-events:none; }
+
+/* ─── AI PROCESSING ─── */
+.ai-processing-wrap { text-align:center; padding:3rem 0 2rem; }
+.ai-spinner { width:56px; height:56px; border-radius:50%; border:3px solid var(--border); border-top-color:var(--accent); animation:spin 0.9s linear infinite; margin:0 auto 1.5rem; }
+@keyframes spin { to { transform:rotate(360deg); } }
+.ai-processing-title { font-size:1.4rem; font-weight:800; color:var(--text); margin-bottom:0.5rem; }
+.ai-processing-sub { font-size:13.5px; color:var(--text-muted); max-width:380px; margin:0 auto 2rem; }
+.ai-steps-list { display:flex; flex-direction:column; gap:10px; max-width:360px; margin:0 auto; text-align:left; }
+.ai-step-item { display:flex; align-items:center; gap:12px; padding:10px 14px; border-radius:10px; font-size:13px; font-weight:600; transition:all 0.4s; }
+.ai-step-item.done { background:var(--green-light); color:var(--green); }
+.ai-step-item.active { background:var(--accent-light); color:var(--accent); }
+.ai-step-item.pending { background:var(--surface); color:var(--text-faint); border:1.5px solid var(--border); }
+.ai-step-icon { font-size:16px; width:24px; text-align:center; }
+
+/* ─── SECTION INTRO ─── */
+.section-intro-wrap { text-align:center; padding:2rem 0; }
+.section-num-pill { display:inline-flex; align-items:center; gap:6px; background:var(--accent-light); color:var(--accent); border:1px solid var(--accent-border); border-radius:99px; padding:5px 14px; font-size:11px; font-weight:700; letter-spacing:0.5px; margin-bottom:1.5rem; }
+.section-intro-icon { font-size:3rem; margin-bottom:1rem; }
+.section-q-count { display:inline-flex; align-items:center; gap:6px; background:var(--bg); border:1.5px solid var(--border); border-radius:8px; padding:7px 14px; font-size:12px; font-weight:600; color:var(--text-muted); margin-top:0.5rem; }
+
+/* ─── SECTION QUESTION EYEBROW ─── */
+.section-crumb { display:flex; align-items:center; gap:6px; margin-bottom:0.75rem; flex-wrap:wrap; }
+.section-crumb-item { font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-faint); }
+.section-crumb-sep { color:var(--text-faint); font-size:10px; }
+
+/* ─── WEBSITE PREVIEW ─── */
+.preview-browser { background:var(--surface); border:1.5px solid var(--border); border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-md); margin-bottom:2rem; }
+.preview-chrome { background:#EFEEEA; border-bottom:1px solid var(--border); padding:10px 14px; display:flex; align-items:center; gap:10px; }
+.preview-dots { display:flex; gap:5px; }
+.preview-dot { width:10px; height:10px; border-radius:50%; }
+.preview-dot.r { background:#FF5F57; }
+.preview-dot.y { background:#FFBD2E; }
+.preview-dot.g { background:#28C840; }
+.preview-urlbar { flex:1; background:var(--surface); border-radius:6px; padding:4px 12px; font-size:11px; color:var(--text-muted); font-weight:500; display:flex; align-items:center; gap:5px; }
+.preview-site { font-size:11px; line-height:1.4; }
+.site-nav { background:#1A1A18; padding:10px 20px; display:flex; align-items:center; justify-content:space-between; }
+.site-nav-logo { color:#fff; font-weight:800; font-size:12px; letter-spacing:-0.3px; }
+.site-nav-links { display:flex; gap:10px; align-items:center; }
+.site-nav-link { color:rgba(255,255,255,0.55); font-size:9.5px; font-weight:500; }
+.site-nav-cta { background:var(--accent); color:#fff; font-size:9px; font-weight:700; padding:4px 10px; border-radius:5px; }
+.site-hero { background:linear-gradient(135deg,#5D5CE8 0%,#7C7BF0 50%,#9E9DF5 100%); padding:32px 24px; text-align:center; }
+.site-hero-eyebrow { color:rgba(255,255,255,0.7); font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:2px; margin-bottom:8px; }
+.site-hero-h { color:#fff; font-size:18px; font-weight:800; line-height:1.2; margin-bottom:8px; letter-spacing:-0.3px; }
+.site-hero-sub { color:rgba(255,255,255,0.82); font-size:10px; line-height:1.6; max-width:340px; margin:0 auto 16px; }
+.site-hero-cta { display:inline-block; background:#fff; color:#5D5CE8; font-size:10px; font-weight:700; padding:8px 18px; border-radius:7px; }
+.site-section { padding:18px 22px; border-bottom:1px solid var(--border); }
+.site-section.alt { background:#FAFAF8; }
+.site-section-eyebrow { font-size:8.5px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-faint); margin-bottom:5px; }
+.site-section-title { font-size:14px; font-weight:800; color:var(--text); margin-bottom:6px; }
+.site-section-body { font-size:10px; color:var(--text-muted); line-height:1.6; }
+.site-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:7px; margin-top:10px; }
+.site-card { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:10px 8px; text-align:center; }
+.site-card-icon { font-size:14px; margin-bottom:3px; }
+.site-card-label { font-size:9px; font-weight:700; color:var(--text); line-height:1.3; }
+.site-testimonials { background:#F4F3FF; padding:18px 22px; border-bottom:1px solid var(--border); }
+.site-testimonial { background:var(--surface); border-radius:9px; padding:12px; border:1px solid rgba(93,92,232,0.15); }
+.site-stars { color:#F59E0B; font-size:11px; margin-bottom:4px; }
+.site-testimonial-text { font-size:10px; color:var(--text-muted); line-height:1.5; font-style:italic; }
+.site-testimonial-name { font-size:9px; font-weight:700; color:var(--text); margin-top:6px; }
+.site-faq { padding:18px 22px; border-bottom:1px solid var(--border); background:var(--bg); }
+.site-faq-item { padding:8px 0; border-bottom:1px solid var(--border); display:flex; align-items:flex-start; gap:8px; }
+.site-faq-item:last-child { border-bottom:none; }
+.site-faq-q { font-size:10px; font-weight:700; color:var(--text); flex:1; }
+.site-faq-arrow { color:var(--text-faint); font-size:10px; }
+.site-contact-bar { background:#1A1A18; padding:18px 22px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+.site-contact-field { }
+.site-contact-label { color:rgba(255,255,255,0.4); font-size:8px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:3px; }
+.site-contact-val { color:rgba(255,255,255,0.85); font-size:10px; font-weight:500; word-break:break-all; }
+.preview-ph { background:repeating-linear-gradient(90deg,var(--border) 0%,var(--border) 40%,transparent 40%,transparent 100%); background-size:8px 100%; height:10px; border-radius:3px; opacity:0.5; }
+.preview-ph.lg { height:16px; }
+.preview-ph.sm { max-width:60%; height:9px; }
+.preview-ph.xs { max-width:40%; height:8px; }
+
+/* ─── SECTION COVERAGE ─── */
+.section-coverage-list { display:flex; flex-direction:column; gap:8px; margin-bottom:2rem; }
+.coverage-row { display:flex; align-items:center; gap:10px; }
+.coverage-icon { font-size:16px; width:24px; text-align:center; flex-shrink:0; }
+.coverage-name { font-size:12.5px; font-weight:600; color:var(--text); flex:1; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.coverage-bar-bg { flex:0 0 120px; height:6px; background:var(--border); border-radius:99px; overflow:hidden; }
+.coverage-bar-fill { height:100%; background:var(--accent); border-radius:99px; transition:width 0.6s ease; }
+.coverage-nums { font-size:11px; font-weight:600; color:var(--text-muted); white-space:nowrap; }
+
+/* ─── HANDOFF CARD ─── */
+.handoff-card { background:linear-gradient(135deg,#1A1A18 0%,#2A2A28 100%); border-radius:var(--radius-xl); padding:2rem; margin-bottom:1.5rem; }
+.handoff-header { display:flex; align-items:center; gap:14px; margin-bottom:1rem; }
+.handoff-avatar { width:48px; height:48px; background:var(--accent); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; flex-shrink:0; }
+.handoff-title { font-size:1.1rem; font-weight:800; color:#fff; }
+.handoff-sub { font-size:12px; color:rgba(255,255,255,0.5); margin-top:2px; }
+.handoff-body { font-size:13px; color:rgba(255,255,255,0.7); line-height:1.7; margin-bottom:1.25rem; }
+.handoff-steps { display:flex; flex-direction:column; gap:8px; }
+.handoff-step { display:flex; align-items:center; gap:10px; font-size:12.5px; font-weight:600; color:rgba(255,255,255,0.75); }
+.handoff-step-num { width:22px; height:22px; background:var(--accent); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; color:#fff; flex-shrink:0; }
+
+/* ─── COMPLETION ─── */
+.completion-wrap { text-align:center; }
+.completion-icon { width:72px; height:72px; background:var(--green-light); border-radius:50%; margin:0 auto 1.5rem; display:flex; align-items:center; justify-content:center; font-size:2rem; }
+.completion-heading { font-size:2rem; font-weight:800; letter-spacing:-0.5px; color:var(--text); margin-bottom:0.5rem; }
+.completion-sub { font-size:14px; color:var(--text-muted); max-width:400px; margin:0 auto 2rem; }
+.profile-card { background:var(--surface); border:1.5px solid var(--border); border-radius:var(--radius-xl); padding:1.75rem; text-align:left; margin-bottom:1.5rem; box-shadow:var(--shadow-md); }
+.profile-header { display:flex; align-items:center; gap:12px; margin-bottom:1.25rem; padding-bottom:1.25rem; border-bottom:1px solid var(--border); }
+.profile-avatar { width:52px; height:52px; border-radius:12px; background:var(--accent-light); display:flex; align-items:center; justify-content:center; font-size:1.5rem; }
+.profile-biz-name { font-size:1.1rem; font-weight:800; color:var(--text); }
+.profile-industry { font-size:12px; font-weight:500; color:var(--text-muted); margin-top:2px; }
+.profile-data { display:grid; grid-template-columns:1fr 1fr; gap:0; }
+.profile-datum { padding:8px 0; border-bottom:1px solid var(--border); }
+.profile-datum:nth-last-child(-n+2) { border-bottom:none; }
+.pd-label { font-size:10px; font-weight:700; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:3px; }
+.pd-val { font-size:13px; font-weight:600; color:var(--text); word-break:break-word; }
+.stats-row { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:1.5rem; }
+.stat-card { background:var(--surface); border:1.5px solid var(--border); border-radius:var(--radius); padding:1rem; text-align:center; }
+.stat-val { font-size:1.5rem; font-weight:800; color:var(--text); }
+.stat-label { font-size:11px; font-weight:600; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.5px; margin-top:3px; }
+.completion-actions { display:flex; gap:10px; flex-direction:column; max-width:320px; margin:0 auto; }
+.btn-primary-action { font-family:inherit; font-size:15px; font-weight:700; color:#fff; background:var(--accent); border:none; padding:14px 28px; border-radius:10px; cursor:pointer; transition:all 0.18s; }
+.btn-primary-action:hover { opacity:0.9; transform:translateY(-1px); }
+.btn-secondary-action { font-family:inherit; font-size:13px; font-weight:600; color:var(--text-muted); background:var(--surface); border:1.5px solid var(--border); padding:11px 20px; border-radius:10px; cursor:pointer; transition:all 0.15s; }
+.btn-secondary-action:hover { border-color:var(--border-hover); color:var(--text); }
+
+@media(max-width:640px){
+  .header { padding:0 1rem; }
+  .main { padding:2rem 1rem 7rem; }
+  .footer { padding:0.875rem 1rem; }
+  .ind-grid { grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:7px; }
+  .options-grid.two-col,.options-grid.three-col { grid-template-columns:1fr; }
+  .yes-no-row { grid-template-columns:1fr; }
+  .profile-data { grid-template-columns:1fr; }
+  .stats-row { grid-template-columns:1fr; }
+  .step-heading { font-size:1.4rem; }
+  .site-cards { grid-template-columns:repeat(2,1fr); }
+  .site-contact-bar { grid-template-columns:1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">v<span>AI</span></div>
+    <div class="progress-wrap" id="headerProgress" style="display:none">
+      <div class="progress-bar-outer"><div class="progress-bar-fill" id="progressFill" style="width:0%"></div></div>
+      <span class="progress-label" id="progressLabel">Step 1</span>
+      <span class="phase-badge mandatory" id="phaseBadge">Required</span>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+  <div class="step-wrap" id="stepWrap"></div>
+</main>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer" id="footerNav" style="display:none">
+  <button class="btn-back" id="btnBack" onclick="goBack()">← Back</button>
+  <div class="footer-right">
+    <button class="btn-skip-step" id="btnSkip" onclick="skipStep()">Skip this step</button>
+    <button class="btn-continue" id="btnContinue" onclick="goForward()">Continue →</button>
+  </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════════════
+//  CONFIG — paste your Anthropic API key here
+// ═══════════════════════════════════════════════════════
+const ANTHROPIC_API_KEY = 'YOUR_ANTHROPIC_API_KEY';
+
+// ═══════════════════════════════════════════════════════
+//  INDUSTRIES
+// ═══════════════════════════════════════════════════════
+const INDUSTRIES = [
+  {emoji:"💅",name:"Beauty salon",cat:"Personal services"},
+  {emoji:"🍽️",name:"Restaurant",cat:"Food & beverage"},
+  {emoji:"🏋️",name:"Fitness & gym",cat:"Health & wellness"},
+  {emoji:"🏠",name:"Real estate",cat:"Property & legal"},
+  {emoji:"📷",name:"Photography",cat:"Creative services"},
+  {emoji:"🏥",name:"Medical clinic",cat:"Healthcare"},
+  {emoji:"⚖️",name:"Law firm",cat:"Property & legal"},
+  {emoji:"✈️",name:"Travel agency",cat:"Hospitality & travel"},
+  {emoji:"👗",name:"Fashion boutique",cat:"Retail"},
+  {emoji:"🚀",name:"Tech startup",cat:"Technology"},
+  {emoji:"💍",name:"Wedding planner",cat:"Events & creative"},
+  {emoji:"🎓",name:"Education & tutoring",cat:"Education"},
+  {emoji:"🐾",name:"Pet care",cat:"Personal services"},
+  {emoji:"🛋️",name:"Interior design",cat:"Creative services"},
+  {emoji:"🦷",name:"Dental clinic",cat:"Healthcare"},
+  {emoji:"🍕",name:"Food delivery",cat:"Food & beverage"},
+  {emoji:"🚗",name:"Car dealership",cat:"Automotive & trade"},
+  {emoji:"🧘",name:"Yoga & wellness",cat:"Health & wellness"},
+  {emoji:"🏨",name:"Hotel & hospitality",cat:"Hospitality & travel"},
+  {emoji:"✂️",name:"Barbershop",cat:"Personal services"},
+  {emoji:"🎵",name:"Music school",cat:"Education"},
+  {emoji:"🌿",name:"Landscaping",cat:"Home services"},
+  {emoji:"🎉",name:"Event management",cat:"Events & creative"},
+  {emoji:"💎",name:"Jewelry store",cat:"Retail"},
+  {emoji:"🧹",name:"Cleaning service",cat:"Home services"},
+  {emoji:"🍰",name:"Bakery",cat:"Food & beverage"},
+  {emoji:"📦",name:"Moving company",cat:"Automotive & trade"},
+  {emoji:"❤️",name:"Nonprofit / NGO",cat:"Social & nonprofit"},
+  {emoji:"🖋️",name:"Tattoo studio",cat:"Personal services"},
+  {emoji:"🏗️",name:"Construction",cat:"Property & legal"},
+  {emoji:"🎮",name:"Gaming / Esports",cat:"Technology"},
+  {emoji:"🐕",name:"Pet products",cat:"Retail"},
+  {emoji:"🍺",name:"Bar / Brewery",cat:"Food & beverage"},
+  {emoji:"🧴",name:"Skincare / Cosmetics",cat:"Retail"},
+  {emoji:"💰",name:"Finance / Insurance",cat:"Financial services"},
+  {emoji:"📣",name:"Marketing agency",cat:"Technology"},
+  {emoji:"✏️",name:"Other",cat:"Other"},
+];
+
+// ═══════════════════════════════════════════════════════
+//  PLATFORMS
+// ═══════════════════════════════════════════════════════
+const PLATFORMS = [
+  {id:"instagram",label:"Instagram",emoji:"📸",prefix:"@",placeholder:"yourbrand"},
+  {id:"facebook",label:"Facebook",emoji:"👍",prefix:"facebook.com/",placeholder:"YourPage"},
+  {id:"linkedin",label:"LinkedIn",emoji:"💼",prefix:"linkedin.com/",placeholder:"company/yourbrand"},
+  {id:"twitter",label:"Twitter / X",emoji:"🐦",prefix:"@",placeholder:"yourbrand"},
+  {id:"youtube",label:"YouTube",emoji:"▶️",prefix:"youtube.com/",placeholder:"@YourChannel"},
+  {id:"whatsapp_biz",label:"WhatsApp Business",emoji:"💬",prefix:"+",placeholder:"91 98765 43210"},
+  {id:"google_biz",label:"Google My Business",emoji:"📌",prefix:"",placeholder:"Business name as listed on Google"},
+  {id:"tiktok",label:"TikTok",emoji:"🎵",prefix:"@",placeholder:"yourbrand"},
+  {id:"pinterest",label:"Pinterest",emoji:"📌",prefix:"pinterest.com/",placeholder:"YourBrand"},
+];
+
+// ═══════════════════════════════════════════════════════
+//  MANDATORY CONTACT QUESTIONS
+// ═══════════════════════════════════════════════════════
+const MANDATORY_Q = [
+  {id:"registered_name",type:"text",phase:"mandatory",category:"Let's get started",question:"What is the official registered name of your business?",sub:"This should match your legal business registration.",placeholder:"e.g. Glow Studio Pvt. Ltd., Shreeji Homes LLP",required:true,skippable:false},
+  {id:"official_email",type:"email",phase:"mandatory",category:"Contact details",question:"What is your official business email address?",placeholder:"e.g. hello@yourbusiness.com",required:true,skippable:false},
+  {id:"official_phone",type:"tel",phase:"mandatory",category:"Contact details",question:"What is your official contact number?",placeholder:"e.g. +91 98765 43210",required:true,skippable:false},
+  {id:"biz_description",type:"textarea",phase:"mandatory",category:"Your business",question:"Describe your business in 2–3 sentences.",sub:"Who you serve, what you offer, what makes you different. The more you share, the smarter your website blueprint will be.",placeholder:"e.g. We are a boutique real estate firm specialising in premium residential apartments and villa plots across South Bengaluru. Since 2015 we've helped 450+ families find their ideal home, offering end-to-end support from site visits to registration.",required:true,skippable:false},
+  {id:"whatsapp",type:"tel",phase:"mandatory",category:"Contact details",question:"What's your WhatsApp number?",sub:"Leave blank if it's the same as your phone number.",placeholder:"e.g. +91 98765 43210",skippable:true},
+];
+
+// ═══════════════════════════════════════════════════════
+//  SHARED SECTIONS — appended after AI-generated sections
+// ═══════════════════════════════════════════════════════
+const SHARED_SECTIONS = [
+  {
+    id:"branding",title:"Branding & Assets",icon:"🎨",
+    description:"Upload your logo, visual assets, and anything that represents your brand.",
+    questions:[
+      {id:"logo_upload",type:"file_upload",category:"Branding",question:"Upload your company logo",sub:"PNG, SVG, JPG or PDF. Include all variations if you have them (light, dark, icon-only).",accept:"image/*,.pdf,.svg,.ai,.eps,.psd",multiple:true,skippable:true},
+      {id:"assets_upload",type:"file_upload",category:"Branding",question:"Upload any other brand assets",sub:"Team photos, product shots, premises, previous work. Videos, brochures, brand guides — anything visual helps.",accept:"image/*,video/*,.pdf,.doc,.docx,.ppt,.pptx,.zip",multiple:true,skippable:true},
+    ]
+  },
+  {
+    id:"online_presence",title:"Online Presence",icon:"📱",
+    description:"Tell us where you're already active online so we can connect everything.",
+    questions:[
+      {id:"online_presence",type:"platforms_handles",category:"Online Presence",question:"Which platforms are you active on?",sub:"Check each platform you're on and enter your handle or URL.",skippable:true},
+      {id:"existing_website",type:"yes_no",category:"Website",question:"Do you already have a website?",yes_label:"Yes, I have one",yes_icon:"🌐",no_label:"Starting fresh",no_icon:"🆕",skippable:true},
+      {id:"existing_url",type:"text",category:"Website",question:"What's your current website URL?",placeholder:"https://www.yourbusiness.com",skippable:true,showIfAnswer:{id:"existing_website",value:"yes"}},
+    ]
+  },
+  {
+    id:"project_details",title:"Project Details",icon:"📋",
+    description:"Help us understand your timeline and any specific expectations.",
+    questions:[
+      {id:"timeline",type:"single_select",category:"Timeline",question:"How soon do you need your website ready?",options:[{icon:"⚡",label:"ASAP — under 2 weeks"},{icon:"📅",label:"Within a month"},{icon:"🗓️",label:"1–3 months"},{icon:"🔵",label:"No hard deadline"}],skippable:true},
+      {id:"budget_range",type:"single_select",category:"Budget",question:"What is your approximate budget for this project?",options:[{icon:"🌱",label:"Under ₹50k"},{icon:"📈",label:"₹50k – ₹1.5L"},{icon:"💎",label:"₹1.5L – ₹5L"},{icon:"🏆",label:"₹5L+"}],skippable:true},
+      {id:"notes",type:"textarea",category:"Anything Else",question:"Anything else we should know?",sub:"Competitors to research, specific features, past agency experiences, references — anything that helps us understand your vision.",placeholder:"Feel free to share anything...",skippable:true},
+    ]
+  },
+];
+
+// ═══════════════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════════════
+let state = {
+  phase:'contact',   // 'contact'|'industry'|'ai_processing'|'sections'|'preview'|'complete'
+  contactIdx:0,
+  industry:null,
+  sectionIdx:0,
+  questionIdx:-1,    // -1 = section intro screen, 0+ = question index within section
+  sections:[],       // AI-generated + SHARED_SECTIONS
+  answers:{},
+  skipped:new Set(),
+  uploadedFiles:{},
+  otherInputs:{},
+  startTime:null,
+  aiGenerated:false,
+};
+let indSelected=null, indSearch='', indCat='All', otherText='';
+
+// ═══════════════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════════════
+function init(){
+  state.startTime = Date.now();
+  showContactStep();
+}
+
+// ═══════════════════════════════════════════════════════
+//  CONTACT PHASE
+// ═══════════════════════════════════════════════════════
+function showContactStep(){
+  state.phase = 'contact';
+  const q = MANDATORY_Q[state.contactIdx];
+  document.getElementById('headerProgress').style.display = 'flex';
+  document.getElementById('footerNav').style.display = 'flex';
+  updateProgressBar(state.contactIdx, MANDATORY_Q.length + 1, 'mandatory');
+
+  const saved = state.answers[q.id] || '';
+  const html = `<div class="step-content">
+    <div style="margin-bottom:1.75rem">
+      <div class="step-eyebrow">${esc(q.category)}</div>
+      <h1 class="step-heading">${esc(q.question)}</h1>
+      ${q.sub ? `<p class="step-sub">${esc(q.sub)}</p>` : ''}
+      ${!q.skippable ? `<div class="required-notice">🔒 Required — this field cannot be skipped</div>` : ''}
+    </div>
+    ${q.type==='textarea'
+      ? `<textarea class="field-input" id="qInput" placeholder="${esc(q.placeholder||'')}" oninput="onContactInput()">${esc(saved)}</textarea>`
+      : `<input class="field-input" id="qInput" type="${q.type||'text'}" placeholder="${esc(q.placeholder||'')}" value="${esc(saved)}" oninput="onContactInput()">`
+    }
+  </div>`;
+  document.getElementById('stepWrap').innerHTML = html;
+  document.getElementById('btnBack').style.display = state.contactIdx===0 ? 'none' : '';
+  document.getElementById('btnSkip').style.display = q.skippable ? '' : 'none';
+  document.getElementById('btnSkip').textContent = 'Skip this step';
+  updateContinueState(q);
+  setTimeout(()=>document.getElementById('qInput')?.focus(), 80);
+}
+
+function onContactInput(){
+  const q = MANDATORY_Q[state.contactIdx];
+  state.answers[q.id] = document.getElementById('qInput').value.trim();
+  updateContinueState(q);
+}
+
+// ═══════════════════════════════════════════════════════
+//  INDUSTRY SELECTION
+// ═══════════════════════════════════════════════════════
+function showIndustryScreen(){
+  state.phase = 'industry';
+  document.getElementById('footerNav').style.display = 'none';
+  document.getElementById('phaseBadge').className = 'phase-badge optional';
+  document.getElementById('phaseBadge').textContent = 'Optional';
+  updateProgressBar(MANDATORY_Q.length, MANDATORY_Q.length + 1, 'optional');
+
+  const cats = ['All',...[...new Set(INDUSTRIES.map(i=>i.cat))].sort()];
+  const filtered = INDUSTRIES.filter(i=>{
+    const mc = indCat==='All'||i.cat===indCat;
+    const ms = !indSearch||i.name.toLowerCase().includes(indSearch.toLowerCase());
+    return mc&&ms;
+  });
+
+  const html = `<div class="step-content">
+    <div style="margin-bottom:2rem">
+      <div class="step-eyebrow">About your business</div>
+      <h1 class="step-heading">What industry are you in?</h1>
+      <p class="step-sub">Our AI will use this together with your business description to generate a tailored website blueprint.</p>
+    </div>
+    <div class="ind-search">
+      <span style="color:var(--text-faint)">🔍</span>
+      <input type="text" placeholder="Search industries…" value="${esc(indSearch)}" oninput="onIndSearch(this.value)" autocomplete="off">
+    </div>
+    <div class="cat-row">
+      ${cats.map(c=>`<button class="cat-tag ${c===indCat?'active':''}" onclick="onIndCat('${c}')">${c}</button>`).join('')}
+    </div>
+    ${filtered.length ? `<div class="ind-grid">
+      ${filtered.map(i=>`
+        <div class="ind-card ${i.name==='Other'?'other-card':''} ${indSelected&&indSelected.name===i.name?'selected':''}" onclick="onIndSelect('${i.name}')">
+          <div class="ind-emoji">${i.emoji}</div>
+          <div class="ind-name">${i.name}</div>
+          <div class="ind-cat">${i.cat}</div>
+        </div>`).join('')}
+    </div>` : '<div style="text-align:center;padding:2rem;color:var(--text-muted);font-size:13px">No industries match your search.</div>'}
+    ${indSelected&&indSelected.name==='Other' ? `
+      <div class="other-input-wrap show" style="margin-bottom:1rem">
+        <input class="other-input" placeholder="Describe your industry or business type…" value="${esc(otherText)}" oninput="otherText=this.value" autofocus>
+      </div>` : ''}
+    <div class="ind-footer">
+      <div class="ind-sel-label">${indSelected ? `Selected: <strong>${indSelected.emoji} ${indSelected.name==='Other'&&otherText ? otherText : indSelected.name}</strong>` : 'Choose your industry above'}</div>
+      <button class="btn-ind-continue ${indSelected?'enabled':''}" onclick="startAIFlow()">Analyse my business →</button>
+    </div>
+  </div>`;
+  document.getElementById('stepWrap').innerHTML = html;
+}
+
+function onIndSearch(v){ indSearch=v; showIndustryScreen(); }
+function onIndCat(c){ indCat=c; showIndustryScreen(); }
+function onIndSelect(name){
+  indSelected = INDUSTRIES.find(i=>i.name===name);
+  if(name!=='Other') otherText='';
+  showIndustryScreen();
+}
+
+// ═══════════════════════════════════════════════════════
+//  AI PROCESSING
+// ═══════════════════════════════════════════════════════
+function startAIFlow(){
+  if(!indSelected) return;
+  state.industry = {...indSelected, displayName: indSelected.name==='Other'&&otherText ? otherText : indSelected.name};
+  state.answers['industry'] = state.industry.displayName;
+  state.phase = 'ai_processing';
+  document.getElementById('footerNav').style.display = 'none';
+  document.getElementById('phaseBadge').className = 'phase-badge ai';
+  document.getElementById('phaseBadge').textContent = 'AI';
+  showAIProcessing();
+  callClaudeForSections();
+}
+
+function showAIProcessing(){
+  const bizName = state.answers['registered_name'] || 'your business';
+  const steps = [
+    {icon:'✓', label:'Business profile understood', state:'done'},
+    {icon:'◌', label:'Identifying website sections…', state:'active'},
+    {icon:'◌', label:'Generating personalised questions', state:'pending'},
+  ];
+  const html = `<div class="step-content">
+    <div class="ai-processing-wrap">
+      <div class="ai-spinner"></div>
+      <div class="ai-processing-title">Analysing your business…</div>
+      <p class="ai-processing-sub">Our AI is reviewing <strong>${esc(bizName)}</strong> and building a personalised website blueprint.</p>
+      <div class="ai-steps-list" id="aiStepsList">
+        ${steps.map((s,i)=>`<div class="ai-step-item ${s.state}" id="aiStep${i}">
+          <span class="ai-step-icon">${s.icon}</span>
+          <span>${s.label}</span>
+        </div>`).join('')}
+      </div>
+    </div>
+  </div>`;
+  document.getElementById('stepWrap').innerHTML = html;
+  updateProgressBar(MANDATORY_Q.length + 1, MANDATORY_Q.length + 2, 'optional');
+}
+
+function updateAIStep(stepIdx){
+  [0,1,2].forEach(i => {
+    const el = document.getElementById('aiStep'+i);
+    if(!el) return;
+    if(i < stepIdx){ el.className='ai-step-item done'; el.querySelector('.ai-step-icon').textContent='✓'; }
+    else if(i===stepIdx){ el.className='ai-step-item active'; el.querySelector('.ai-step-icon').textContent='→'; }
+    else { el.className='ai-step-item pending'; }
+  });
+}
+
+async function callClaudeForSections(){
+  const bizName = state.answers['registered_name'] || '';
+  const bizDesc = state.answers['biz_description'] || '';
+  const industry = state.industry.displayName;
+
+  const systemPrompt = `You are a senior website architect and digital onboarding expert at vAI, a web agency that builds high-converting websites for businesses.
+
+A business owner has registered and shared their details. You must:
+1. Identify exactly which sections their website should have based on their industry and description
+2. Generate smart, specific questions per section to gather all the content needed to build each one
+
+MANDATORY SECTIONS (always include, in this order):
+① Hero / Banner — headline, value proposition, primary CTA, hero image guidance
+② About Us — origin story, founder, mission, what makes them unique, team
+③ [Industry-specific sections — see below]
+④ Testimonials & Social Proof — client quotes, case studies, star ratings
+⑤ FAQ — common questions specific to their business and industry
+⑥ Contact & Location — address, hours, enquiry form fields
+
+ADD THESE SECTIONS WHEN RELEVANT TO THE INDUSTRY:
+• "Services" → service-based businesses (salons, clinics, agencies, consulting, home services, coaching)
+• "Products / Catalogue" → retail, trading, manufacturing, FMCG, e-commerce
+• "Menu" → restaurants, cafes, bakeries, bars, food & beverage
+• "Portfolio / Work Gallery" → photography, interior design, architecture, creative agencies, tattoo studios
+• "Property Listings" → real estate developers, brokers, agents, property management
+• "Team / Experts" → clinics, hospitals, law firms, multi-doctor practices, schools, large agencies
+• "Pricing & Packages" → SaaS, gyms, coaching, salons, tutoring, agencies
+• "Events / Schedule" → gyms, music schools, event management, hospitality venues
+• "Blog / Resources" → education, healthcare, finance, agencies, NGOs
+• "Awards & Press" → established brands, funded startups, award-winning businesses
+
+QUESTION RULES:
+• 3–5 questions per section, all with skippable: true
+• Be SPECIFIC to this exact business — use their industry, name, and description as context
+• Every question must map directly to actual website content
+• Available types: "text", "textarea", "single_select", "multi_chips", "yes_no"
+• For single_select and multi_chips: provide 4–6 relevant options with emoji icons
+• Question IDs must be unique lowercase_snake_case strings
+
+CRITICAL: Return ONLY raw JSON. No markdown, no explanation, no code fences. Start with { end with }.
+
+Format:
+{"sections":[{"id":"hero","title":"Hero Section","icon":"🎯","description":"The first thing visitors see — your headline and main call to action","questions":[{"id":"hero_tagline","type":"text","category":"Hero Section","question":"What's your main headline or tagline?","sub":"5–10 punchy words that capture what you do","placeholder":"e.g., Bengaluru's Most Trusted Property Partner","skippable":true}]}]}`;
+
+  const userMsg = `Business Name: ${bizName}
+Industry: ${industry}
+Description: ${bizDesc}
+
+Generate the website sections and questions for this specific business.`;
+
+  try {
+    setTimeout(()=>updateAIStep(1), 800);
+
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'x-api-key': ANTHROPIC_API_KEY,
+        'anthropic-version':'2023-06-01',
+        'anthropic-dangerous-direct-browser-access':'true',
+      },
+      body: JSON.stringify({
+        model:'claude-haiku-4-5-20251001',
+        max_tokens:4096,
+        system: systemPrompt,
+        messages:[{role:'user', content:userMsg}],
+      }),
+    });
+
+    if(!resp.ok) throw new Error('API error '+resp.status);
+    const data = await resp.json();
+    const raw = data.content[0].text.trim();
+
+    setTimeout(()=>updateAIStep(2), 400);
+
+    const jsonMatch = raw.match(/\{[\s\S]*\}/);
+    if(!jsonMatch) throw new Error('No JSON in response');
+    const parsed = JSON.parse(jsonMatch[0]);
+    if(!parsed.sections || !Array.isArray(parsed.sections)) throw new Error('Bad sections');
+
+    setTimeout(()=>{
+      state.sections = [...parsed.sections, ...SHARED_SECTIONS];
+      state.aiGenerated = true;
+      state.sectionIdx = 0;
+      state.questionIdx = -1;
+      state.phase = 'sections';
+      document.getElementById('footerNav').style.display = 'flex';
+      document.getElementById('phaseBadge').className = 'phase-badge optional';
+      document.getElementById('phaseBadge').textContent = 'Optional';
+      animateAndRun(showSectionIntro);
+    }, 700);
+
+  } catch(err){
+    console.warn('Claude API error, using fallback:', err.message);
+    setTimeout(()=>fallbackToStaticSections(), 600);
+  }
+}
+
+function fallbackToStaticSections(){
+  const industry = state.industry.displayName;
+  const desc = state.answers['biz_description'] || '';
+  state.sections = [
+    {id:'hero',title:'Hero Section',icon:'🎯',description:'Your main headline and first impression',questions:[
+      {id:'hero_tagline',type:'text',category:'Hero Section',question:'What is your main headline or tagline?',placeholder:'e.g., Trusted Experts in '+industry,skippable:true},
+      {id:'hero_cta',type:'text',category:'Hero Section',question:'What should your primary call-to-action button say?',placeholder:'e.g., Book a Free Consultation, Get a Quote, View Projects',skippable:true},
+      {id:'hero_subline',type:'textarea',category:'Hero Section',question:'Write a short subheadline (1–2 sentences) that supports your tagline.',placeholder:'Expand on your value proposition here…',skippable:true},
+    ]},
+    {id:'about',title:'About Us',icon:'🤝',description:'Your story, mission and what makes you different',questions:[
+      {id:'founding_story',type:'textarea',category:'About Us',question:'Tell us how and why your business was founded.',placeholder:'Share your origin story — what gap did you spot? What drives you?',skippable:true},
+      {id:'team_size',type:'single_select',category:'About Us',question:'How big is your team?',options:[{icon:'🙋',label:'Just me'},{icon:'👥',label:'2–10 people'},{icon:'🏠',label:'11–50 people'},{icon:'🏢',label:'50+ people'}],skippable:true},
+      {id:'usp',type:'textarea',category:'About Us',question:'What makes you genuinely different from competitors?',placeholder:'e.g., We offer a 24-hour response guarantee, 10 years of specialised experience…',skippable:true},
+    ]},
+    {id:'services',title:'Services / Offerings',icon:'⭐',description:'What you offer and how you deliver value',questions:[
+      {id:'services_list',type:'multi_chips',category:'Services',question:'Which of these best describe what you offer?',options:[{icon:'🛠️',label:'Consultation'},{icon:'📦',label:'Products'},{icon:'🎨',label:'Custom work'},{icon:'📋',label:'Packages'},{icon:'🔁',label:'Retainer / ongoing'},{icon:'⚡',label:'One-time projects'}],skippable:true},
+      {id:'service_desc',type:'textarea',category:'Services',question:'Describe your top 2–3 services or offerings in detail.',placeholder:'Name, what's included, who it's for, typical outcome…',skippable:true},
+      {id:'pricing_model',type:'single_select',category:'Services',question:'How are your services priced?',options:[{icon:'🏷️',label:'Fixed packages'},{icon:'⏱️',label:'Hourly / daily rate'},{icon:'💬',label:'Custom quote per project'},{icon:'📅',label:'Monthly retainer'}],skippable:true},
+    ]},
+    {id:'testimonials',title:'Testimonials',icon:'⭐',description:'Social proof and client success stories',questions:[
+      {id:'testimonial_1',type:'textarea',category:'Testimonials',question:'Share your best client testimonial (quote + client name).',placeholder:'"Working with them was exceptional…" — Rahul M., CEO',skippable:true},
+      {id:'avg_rating',type:'single_select',category:'Testimonials',question:'What's your average Google / platform rating?',options:[{icon:'⭐',label:'Not yet rated'},{icon:'🌟',label:'4.0–4.4 stars'},{icon:'✨',label:'4.5–4.9 stars'},{icon:'🏆',label:'5.0 stars'}],skippable:true},
+      {id:'client_count',type:'text',category:'Testimonials',question:'How many clients / customers have you served so far?',placeholder:'e.g., 250+, Over 1,000, Since 2018',skippable:true},
+    ]},
+    {id:'faq',title:'FAQ',icon:'❓',description:'Common questions your customers ask',questions:[
+      {id:'faq_1',type:'textarea',category:'FAQ',question:'What is the most common question you get from new customers?',placeholder:'Question: … Answer: …',skippable:true},
+      {id:'faq_2',type:'textarea',category:'FAQ',question:'What's a question customers should ask but usually don't?',placeholder:'Question: … Answer: …',skippable:true},
+    ]},
+    {id:'contact',title:'Contact & Location',icon:'📍',description:'How customers can reach you and find you',questions:[
+      {id:'city',type:'text',category:'Location',question:'Which city or area are you based in?',placeholder:'e.g., Koramangala, Bengaluru',skippable:true},
+      {id:'full_address',type:'textarea',category:'Location',question:'What is your full business address?',placeholder:'Building, street, area, city, pincode',skippable:true},
+      {id:'business_hours',type:'text',category:'Contact',question:'What are your business hours?',placeholder:'e.g., Mon–Sat 9am–7pm, Sun by appointment',skippable:true},
+    ]},
+    ...SHARED_SECTIONS,
+  ];
+  state.aiGenerated = false;
+  state.sectionIdx = 0;
+  state.questionIdx = -1;
+  state.phase = 'sections';
+  document.getElementById('footerNav').style.display = 'flex';
+  document.getElementById('phaseBadge').className = 'phase-badge optional';
+  document.getElementById('phaseBadge').textContent = 'Optional';
+  animateAndRun(showSectionIntro);
+}
+
+// ═══════════════════════════════════════════════════════
+//  SECTION INTRO SCREEN
+// ═══════════════════════════════════════════════════════
+function showSectionIntro(){
+  if(state.questionIdx !== -1) state.questionIdx = -1;
+  const section = state.sections[state.sectionIdx];
+  const total = state.sections.length;
+  const num = state.sectionIdx + 1;
+
+  document.getElementById('btnBack').style.display = '';
+  document.getElementById('btnSkip').style.display = '';
+  document.getElementById('btnSkip').textContent = 'Skip section';
+  document.getElementById('btnContinue').disabled = false;
+  document.getElementById('btnContinue').textContent = 'Start →';
+  updateProgressBar(getSectionProgress(), getTotalProgressSteps(), 'optional');
+
+  const html = `<div class="step-content">
+    <div class="section-intro-wrap">
+      <div class="section-num-pill">Section ${num} of ${total}</div>
+      <div class="section-intro-icon">${section.icon}</div>
+      <h1 class="step-heading">${esc(section.title)}</h1>
+      <p class="step-sub">${esc(section.description)}</p>
+      <div class="section-q-count">${section.questions.length} question${section.questions.length!==1?'s':''} · all optional</div>
+    </div>
+  </div>`;
+  document.getElementById('stepWrap').innerHTML = html;
+}
+
+// ═══════════════════════════════════════════════════════
+//  SECTION QUESTION SCREEN
+// ═══════════════════════════════════════════════════════
+function showSectionQuestion(){
+  const section = state.sections[state.sectionIdx];
+
+  // Skip showIfAnswer mismatches
+  while(state.questionIdx < section.questions.length){
+    const q = section.questions[state.questionIdx];
+    if(q.showIfAnswer){
+      const dep = state.answers[q.showIfAnswer.id];
+      if(dep !== q.showIfAnswer.value){ state.questionIdx++; continue; }
+    }
+    break;
+  }
+  // End of section — advance
+  if(state.questionIdx >= section.questions.length){ goForward(); return; }
+
+  const q = section.questions[state.questionIdx];
+  updateProgressBar(getSectionProgress(), getTotalProgressSteps(), 'optional');
+
+  document.getElementById('btnBack').style.display = '';
+  document.getElementById('btnSkip').style.display = (q.skippable===false||q.required) ? 'none' : '';
+  document.getElementById('btnSkip').textContent = 'Skip this step';
+
+  let body = '';
+  if(['text','email','tel','url'].includes(q.type)){
+    body = `<input class="field-input" id="qInput" type="${q.type}" placeholder="${esc(q.placeholder||'')}" value="${esc(state.answers[q.id]||'')}" oninput="onTextQ('${q.id}')">
+            ${q.sub?`<div class="field-hint" style="margin-top:6px">${esc(q.sub)}</div>`:''}`;
+  } else if(q.type==='textarea'){
+    body = `<textarea class="field-input" id="qInput" placeholder="${esc(q.placeholder||'')}" oninput="onTextQ('${q.id}')">${esc(state.answers[q.id]||'')}</textarea>
+            ${q.sub?`<div class="field-hint" style="margin-top:6px">${esc(q.sub)}</div>`:''}`;
+  } else if(q.type==='single_select'){
+    const opts = q.options.find(o=>o.label==='Other') ? q.options : [...q.options,{icon:"✏️",label:"Other",desc:"Not listed above"}];
+    const cols = opts.length<=2?'two-col':opts.length>=6?'three-col':'';
+    const isOther = state.answers[q.id]==='Other';
+    body = `<div class="options-grid ${cols}">
+      ${opts.map(o=>`<div class="opt-card ${state.answers[q.id]===o.label?'selected':''}" onclick="selectOpt('${q.id}','${esc(o.label)}')">
+        <div class="opt-card-icon">${o.icon||'•'}</div>
+        <div class="opt-card-body"><div class="opt-card-label">${esc(o.label)}</div>${o.desc?`<div class="opt-card-desc">${esc(o.desc)}</div>`:''}</div>
+        <div class="opt-card-check"></div>
+      </div>`).join('')}
+    </div>
+    <div class="other-text-row" id="other-row-${q.id}" style="display:${isOther?'block':'none'}">
+      <input class="field-input" id="other-input-${q.id}" placeholder="Please describe…" value="${esc(state.otherInputs[q.id]||'')}" oninput="onOtherInput('${q.id}',this.value)">
+    </div>`;
+  } else if(q.type==='multi_chips'){
+    const saved = Array.isArray(state.answers[q.id]) ? state.answers[q.id] : [];
+    const opts = q.options.find(o=>o.label==='Other') ? q.options : [...q.options,{icon:"✏️",label:"Other"}];
+    const hasOther = saved.includes('Other');
+    body = `<div class="chips-field" style="margin-top:0.25rem">
+      ${opts.map(o=>`<button class="chip-opt ${saved.includes(o.label)?'selected':''}" onclick="toggleChipQ('${q.id}',this,'${esc(o.label)}')">
+        <span>${o.icon||''}</span>${esc(o.label)}<span class="chip-check">✓</span>
+      </button>`).join('')}
+    </div>
+    <div class="other-text-row" id="other-row-${q.id}" style="display:${hasOther?'block':'none'}">
+      <input class="field-input" id="other-input-${q.id}" placeholder="Please describe…" value="${esc(state.otherInputs[q.id]||'')}" oninput="onOtherInput('${q.id}',this.value)">
+    </div>
+    ${q.sub?`<div class="field-hint" style="margin-top:10px">${esc(q.sub)}</div>`:''}`;
+  } else if(q.type==='yes_no'){
+    body = `<div class="yes-no-row">
+      <div class="yn-card ${state.answers[q.id]==='yes'?'selected':''}" onclick="selectYN('${q.id}','yes')">
+        <div class="yn-icon">${q.yes_icon||'✅'}</div>
+        <div class="yn-label">${esc(q.yes_label||'Yes')}</div>
+      </div>
+      <div class="yn-card ${state.answers[q.id]==='no'?'selected':''}" onclick="selectYN('${q.id}','no')">
+        <div class="yn-icon">${q.no_icon||'❌'}</div>
+        <div class="yn-label">${esc(q.no_label||'No')}</div>
+      </div>
+    </div>`;
+  } else if(q.type==='platforms_handles'){
+    body = renderPlatformsHandles();
+  } else if(q.type==='file_upload'){
+    body = renderFileUpload(q);
+  }
+
+  const html = `<div class="step-content">
+    <div style="margin-bottom:1.75rem">
+      <div class="section-crumb">
+        <span class="section-crumb-item">${esc(section.icon)} ${esc(section.title)}</span>
+        <span class="section-crumb-sep">›</span>
+        <span class="section-crumb-item">${esc(q.category||'')}</span>
+      </div>
+      <h1 class="step-heading">${esc(q.question)}</h1>
+      ${q.sub&&!['multi_chips','platforms_handles','file_upload','textarea','text','email','tel','url'].includes(q.type)?`<p class="step-sub">${esc(q.sub)}</p>`:''}
+    </div>
+    ${body}
+  </div>`;
+  document.getElementById('stepWrap').innerHTML = html;
+  bindFileUploadEvents(q);
+  updateContinueState(q);
+  if(['text','email','tel','url'].includes(q.type)||q.type==='textarea')
+    setTimeout(()=>document.getElementById('qInput')?.focus(), 80);
+}
+
+// ═══════════════════════════════════════════════════════
+//  PLATFORMS RENDERER
+// ═══════════════════════════════════════════════════════
+function renderPlatformsHandles(){
+  const saved = state.answers['online_presence'] || {};
+  return `<div class="platforms-list">
+    ${PLATFORMS.map(p=>{
+      const isChecked = !!saved[p.id];
+      return `<div class="platform-row ${isChecked?'checked':''}" id="prow-${p.id}">
+        <div class="platform-toggle" onclick="togglePlatform('${p.id}')">
+          <div class="platform-checkbox" id="pcheck-${p.id}"></div>
+          <div class="platform-icon-label">
+            <span class="platform-emoji">${p.emoji}</span>
+            <span class="platform-name">${p.label}</span>
+          </div>
+        </div>
+        <div class="platform-handle-wrap" id="phandle-${p.id}">
+          ${p.prefix?`<span class="platform-prefix">${p.prefix}</span>`:''}
+          <input class="platform-input" id="pinput-${p.id}" placeholder="${p.placeholder}" value="${esc(saved[p.id]||'')}" oninput="updateHandle('${p.id}',this.value)">
+        </div>
+      </div>`;
+    }).join('')}
+  </div>`;
+}
+
+function togglePlatform(pid){
+  const row = document.getElementById('prow-'+pid);
+  const isOn = row.classList.contains('checked');
+  row.classList.toggle('checked');
+  const saved = state.answers['online_presence'] || {};
+  if(!isOn){ saved[pid]=''; setTimeout(()=>document.getElementById('pinput-'+pid)?.focus(),80); }
+  else delete saved[pid];
+  state.answers['online_presence'] = saved;
+}
+function updateHandle(pid, val){ const s=state.answers['online_presence']||{}; s[pid]=val; state.answers['online_presence']=s; }
+
+// ═══════════════════════════════════════════════════════
+//  FILE UPLOAD RENDERER
+// ═══════════════════════════════════════════════════════
+function renderFileUpload(q){
+  const files = state.uploadedFiles[q.id] || [];
+  const previewsHtml = files.map((f,i)=>{
+    const isImg = f.type.startsWith('image/');
+    if(isImg){ const url=URL.createObjectURL(f); return `<div class="file-preview-item"><img class="file-preview-img" src="${url}" alt="${esc(f.name)}"><div class="file-remove" onclick="removeFile('${q.id}',${i})">×</div></div>`; }
+    const ext=f.name.split('.').pop().toUpperCase();
+    return `<div class="file-preview-item"><div class="file-preview-doc"><div class="file-doc-icon">📄</div><div class="file-doc-name">.${ext}<br>${esc(f.name.slice(0,14))}</div></div><div class="file-remove" onclick="removeFile('${q.id}',${i})">×</div></div>`;
+  }).join('');
+  return `<div class="upload-zone" id="dropzone-${q.id}" onclick="triggerFilePick('${q.id}')">
+    <div class="upload-icon">📁</div>
+    <div class="upload-title">Drop files here or click to browse</div>
+    ${q.sub?`<div class="upload-sub">${esc(q.sub)}</div>`:''}
+    <div class="upload-btn">Browse files</div>
+    <div class="upload-formats">${q.accept||'All files accepted'}</div>
+    ${previewsHtml?`<div class="file-previews" id="previews-${q.id}" onclick="event.stopPropagation()">${previewsHtml}</div>`:''}
+    ${files.length?`<div class="file-count-label">${files.length} file${files.length>1?'s':''} selected</div>`:''}
+  </div>
+  <input type="file" id="fileinput-${q.id}" ${q.multiple?'multiple':''} accept="${q.accept||'*'}" style="display:none" onchange="onFilesSelected('${q.id}',this)">`;
+}
+function bindFileUploadEvents(q){
+  if(q.type!=='file_upload') return;
+  const zone = document.getElementById('dropzone-'+q.id);
+  if(!zone) return;
+  zone.addEventListener('dragover',e=>{e.preventDefault();zone.classList.add('dragover');});
+  zone.addEventListener('dragleave',()=>zone.classList.remove('dragover'));
+  zone.addEventListener('drop',e=>{e.preventDefault();zone.classList.remove('dragover');addFiles(q.id,[...e.dataTransfer.files]);});
+}
+function triggerFilePick(qid){ document.getElementById('fileinput-'+qid)?.click(); }
+function onFilesSelected(qid, input){ addFiles(qid,[...input.files]); }
+function addFiles(qid, newFiles){
+  if(!state.uploadedFiles[qid]) state.uploadedFiles[qid]=[];
+  state.uploadedFiles[qid].push(...newFiles);
+  const q = getAllQuestions().find(q=>q.id===qid);
+  if(q) showSectionQuestion();
+}
+function removeFile(qid, idx){
+  state.uploadedFiles[qid].splice(idx,1);
+  const q = getAllQuestions().find(q=>q.id===qid);
+  if(q) showSectionQuestion();
+}
+
+// ═══════════════════════════════════════════════════════
+//  INPUT HANDLERS
+// ═══════════════════════════════════════════════════════
+function onTextQ(id){ state.answers[id]=(document.getElementById('qInput')?.value||'').trim(); updateContinueState(getCurrentQ()); }
+function selectOpt(id, label){
+  state.answers[id]=label;
+  updateContinueState(getCurrentQ());
+  document.querySelectorAll('.opt-card').forEach(c=>c.classList.remove('selected'));
+  document.querySelectorAll('.opt-card').forEach(c=>{ if(c.querySelector('.opt-card-label')?.textContent===label) c.classList.add('selected'); });
+  const otherRow=document.getElementById('other-row-'+id);
+  if(otherRow){
+    if(label==='Other'){ otherRow.style.display='block'; setTimeout(()=>document.getElementById('other-input-'+id)?.focus(),80); }
+    else { otherRow.style.display='none'; delete state.otherInputs[id]; }
+  }
+  if(label!=='Other') setTimeout(goForward, 320);
+}
+function toggleChipQ(id, el, label){
+  el.classList.toggle('selected');
+  const vals=[...document.querySelectorAll('.chip-opt.selected')].map(c=>c.textContent.trim().replace('✓','').trim());
+  state.answers[id]=vals;
+  updateContinueState(getCurrentQ());
+  const otherRow=document.getElementById('other-row-'+id);
+  if(otherRow){
+    if(vals.includes('Other')){ otherRow.style.display='block'; setTimeout(()=>document.getElementById('other-input-'+id)?.focus(),80); }
+    else { otherRow.style.display='none'; delete state.otherInputs[id]; }
+  }
+}
+function onOtherInput(id, val){ state.otherInputs[id]=val; }
+function selectYN(id, val){
+  state.answers[id]=val;
+  document.querySelectorAll('.yn-card').forEach(c=>c.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+  updateContinueState(getCurrentQ());
+  setTimeout(goForward, 320);
+}
+
+// ═══════════════════════════════════════════════════════
+//  NAVIGATION
+// ═══════════════════════════════════════════════════════
+function goForward(){
+  if(state.phase==='contact'){
+    const q = MANDATORY_Q[state.contactIdx];
+    if(q.required && !state.answers[q.id]) return;
+    if(state.contactIdx < MANDATORY_Q.length-1){ state.contactIdx++; animateAndRun(showContactStep); }
+    else animateAndRun(showIndustryScreen);
+    return;
+  }
+  if(state.phase==='sections'){
+    if(state.questionIdx===-1){
+      state.questionIdx=0;
+      animateAndRun(showSectionQuestion);
+      return;
+    }
+    state.questionIdx++;
+    const section = state.sections[state.sectionIdx];
+    if(state.questionIdx >= section.questions.length){
+      state.sectionIdx++;
+      if(state.sectionIdx >= state.sections.length){ animateAndRun(renderWebsitePreview); }
+      else { state.questionIdx=-1; animateAndRun(showSectionIntro); }
+    } else {
+      animateAndRun(showSectionQuestion);
+    }
+    return;
+  }
+  if(state.phase==='preview'){ animateAndRun(renderCompletion); }
+}
+
+function goBack(){
+  if(state.phase==='contact'){
+    if(state.contactIdx===0) return;
+    state.contactIdx--;
+    animateAndRun(showContactStep);
+  } else if(state.phase==='industry'){
+    state.phase='contact';
+    state.contactIdx=MANDATORY_Q.length-1;
+    document.getElementById('footerNav').style.display='flex';
+    animateAndRun(showContactStep);
+  } else if(state.phase==='sections'){
+    if(state.questionIdx===-1){
+      if(state.sectionIdx===0) animateAndRun(showIndustryScreen);
+      else { state.sectionIdx--; state.questionIdx=state.sections[state.sectionIdx].questions.length-1; animateAndRun(showSectionQuestion); }
+    } else if(state.questionIdx===0){
+      state.questionIdx=-1; animateAndRun(showSectionIntro);
+    } else {
+      state.questionIdx--; animateAndRun(showSectionQuestion);
+    }
+  } else if(state.phase==='preview'){
+    state.phase='sections';
+    state.sectionIdx=state.sections.length-1;
+    state.questionIdx=state.sections[state.sectionIdx].questions.length-1;
+    document.getElementById('footerNav').style.display='flex';
+    animateAndRun(showSectionQuestion);
+  }
+}
+
+function skipStep(){
+  if(state.phase==='contact'){
+    const q=MANDATORY_Q[state.contactIdx];
+    if(!q.skippable) return;
+    state.skipped.add(q.id);
+    goForward(); return;
+  }
+  if(state.phase==='sections'){
+    if(state.questionIdx===-1){
+      // Skip entire section
+      state.sections[state.sectionIdx].questions.forEach(q=>state.skipped.add(q.id));
+      state.sectionIdx++;
+      if(state.sectionIdx>=state.sections.length) animateAndRun(renderWebsitePreview);
+      else { state.questionIdx=-1; animateAndRun(showSectionIntro); }
+    } else {
+      const q=getCurrentQ();
+      if(q) state.skipped.add(q.id);
+      state.questionIdx++;
+      const section=state.sections[state.sectionIdx];
+      if(state.questionIdx>=section.questions.length){
+        state.sectionIdx++;
+        if(state.sectionIdx>=state.sections.length) animateAndRun(renderWebsitePreview);
+        else { state.questionIdx=-1; animateAndRun(showSectionIntro); }
+      } else animateAndRun(showSectionQuestion);
+    }
+  }
+}
+
+function animateAndRun(fn){
+  const el=document.querySelector('.step-content');
+  if(el){ el.style.opacity='0'; el.style.transform='translateY(-10px)'; }
+  setTimeout(fn, 180);
+}
+
+// ═══════════════════════════════════════════════════════
+//  PROGRESS
+// ═══════════════════════════════════════════════════════
+function getTotalProgressSteps(){
+  const sectionSteps = state.sections.reduce((s,sec)=>s+sec.questions.length+1,0);
+  return MANDATORY_Q.length + 1 + sectionSteps;
+}
+function getSectionProgress(){
+  let p = MANDATORY_Q.length + 1;
+  for(let i=0;i<state.sectionIdx;i++) p += state.sections[i].questions.length + 1;
+  if(state.questionIdx===-1) return p;
+  return p + 1 + state.questionIdx;
+}
+function updateProgressBar(current, total, phase){
+  const pct = Math.round((current/total)*100);
+  document.getElementById('progressFill').style.width = pct+'%';
+  document.getElementById('progressLabel').textContent = `Step ${current+1} of ${total}`;
+  const badge=document.getElementById('phaseBadge');
+  if(phase==='mandatory'){ badge.className='phase-badge mandatory'; badge.textContent='Required'; }
+  else { badge.className='phase-badge optional'; badge.textContent='Optional'; }
+}
+function updateContinueState(q){
+  const btn=document.getElementById('btnContinue');
+  if(!btn||!q) return;
+  btn.textContent = 'Continue →';
+  if(q.required) btn.disabled=!hasAnswer(q.id);
+  else btn.disabled=false;
+}
+function hasAnswer(id){
+  const v=state.answers[id];
+  if(!v) return false;
+  if(Array.isArray(v)) return v.length>0;
+  return String(v).trim().length>0;
+}
+function getCurrentQ(){ return state.sections[state.sectionIdx]?.questions[state.questionIdx]; }
+function getAllQuestions(){ return state.sections.flatMap(s=>s.questions); }
+
+// ═══════════════════════════════════════════════════════
+//  WEBSITE PREVIEW
+// ═══════════════════════════════════════════════════════
+function renderWebsitePreview(){
+  state.phase = 'preview';
+  document.getElementById('footerNav').style.display = 'flex';
+  document.getElementById('btnBack').style.display = '';
+  document.getElementById('btnSkip').style.display = 'none';
+  document.getElementById('btnContinue').textContent = 'Looks great — Submit →';
+  document.getElementById('btnContinue').disabled = false;
+  document.getElementById('progressFill').style.width = '98%';
+  document.getElementById('progressLabel').textContent = 'Preview';
+  document.getElementById('phaseBadge').className = 'phase-badge optional';
+  document.getElementById('phaseBadge').textContent = 'Preview';
+
+  const A = state.answers;
+  const bizName = A['registered_name'] || 'Your Business';
+  const industry = state.industry?.displayName || '';
+  const bizDesc = A['biz_description'] || '';
+
+  // Gather key answers from all sections
+  const tagline = findFirstAnswer(['hero_tagline','tagline','headline','main_headline']) || bizName;
+  const heroSub = findFirstAnswer(['hero_subline','hero_subtitle','value_prop']) || bizDesc;
+  const aboutText = findFirstAnswer(['founding_story','about_story','about_description','biz_desc']) || bizDesc;
+  const city = findFirstAnswer(['city','location','operating_cities','full_address']);
+  const services = findFirstAnswerArray(['services_list','services','menu_items','products_list','specialties']);
+
+  // Section coverage
+  const coverage = state.sections.map(section=>{
+    const answered = section.questions.filter(q=>hasAnswer(q.id)&&!state.skipped.has(q.id)).length;
+    return {section, answered, total:section.questions.length};
+  });
+
+  // Build nav links from first 4 sections
+  const navLinks = state.sections.slice(0,4).map(s=>`<div class="site-nav-link">${s.icon} ${s.title}</div>`).join('');
+
+  // Service cards
+  const svcArr = services.slice(0,3);
+  const svcCards = svcArr.length > 0
+    ? svcArr.map(s=>`<div class="site-card"><div class="site-card-icon">✨</div><div class="site-card-label">${esc(s.slice(0,22))}</div></div>`).join('')
+    : `<div class="site-card"><div class="site-card-icon">🌟</div><div class="site-card-label">Service A</div></div><div class="site-card"><div class="site-card-icon">💎</div><div class="site-card-label">Service B</div></div><div class="site-card"><div class="site-card-icon">🏆</div><div class="site-card-label">Service C</div></div>`;
+
+  // Find services section title
+  const svcSection = state.sections.find(s=>['services','products','menu','portfolio','offerings'].some(k=>s.id.includes(k)||s.title.toLowerCase().includes(k)));
+  const svcLabel = svcSection ? svcSection.title : 'Our Offerings';
+
+  // FAQ items
+  const faq1 = findFirstAnswer(['faq_1','common_question','faq_q1']);
+  const faq2 = findFirstAnswer(['faq_2','faq_q2']);
+
+  const urlSlug = bizName.toLowerCase().replace(/[^a-z0-9]/g,'').slice(0,20);
+
+  const previewHTML = `
+    <div class="preview-browser">
+      <div class="preview-chrome">
+        <div class="preview-dots">
+          <div class="preview-dot r"></div><div class="preview-dot y"></div><div class="preview-dot g"></div>
+        </div>
+        <div class="preview-urlbar">🔒 www.${urlSlug}.com</div>
+      </div>
+      <div class="preview-site">
+        <div class="site-nav">
+          <div class="site-nav-logo">${esc(bizName.slice(0,20))}</div>
+          <div class="site-nav-links">${navLinks}<div class="site-nav-cta">Contact Us</div></div>
+        </div>
+        <div class="site-hero">
+          <div class="site-hero-eyebrow">${esc(industry)}</div>
+          <div class="site-hero-h">${esc((tagline||bizName).slice(0,60))}</div>
+          <div class="site-hero-sub">${esc((heroSub||bizDesc).slice(0,110))}</div>
+          <div class="site-hero-cta">Get in Touch →</div>
+        </div>
+        <div class="site-section">
+          <div class="site-section-eyebrow">About us</div>
+          <div class="site-section-title">Who We Are</div>
+          ${aboutText
+            ? `<div class="site-section-body">${esc(aboutText.slice(0,160))}${aboutText.length>160?'…':''}</div>`
+            : `<div class="preview-ph lg" style="margin-bottom:6px"></div><div class="preview-ph sm"></div>`}
+        </div>
+        <div class="site-section alt">
+          <div class="site-section-eyebrow">${esc(svcLabel)}</div>
+          <div class="site-section-title">What We Offer</div>
+          <div class="site-cards">${svcCards}</div>
+        </div>
+        <div class="site-testimonials">
+          <div class="site-section-eyebrow">Testimonials</div>
+          <div class="site-testimonial">
+            <div class="site-stars">★★★★★</div>
+            <div class="site-testimonial-text">"${esc(findFirstAnswer(['testimonial_1','testimonial','client_quote'])||'Outstanding service and professional team. Highly recommended to anyone looking for quality.')}"</div>
+            <div class="site-testimonial-name">— A satisfied client</div>
+          </div>
+        </div>
+        ${faq1||faq2 ? `<div class="site-faq">
+          <div class="site-section-eyebrow">FAQ</div>
+          ${faq1?`<div class="site-faq-item"><div class="site-faq-q">${esc(faq1.slice(0,80))}</div><div class="site-faq-arrow">+</div></div>`:''}
+          ${faq2?`<div class="site-faq-item"><div class="site-faq-q">${esc(faq2.slice(0,80))}</div><div class="site-faq-arrow">+</div></div>`:''}
+        </div>`:`<div class="site-faq">
+          <div class="site-section-eyebrow">FAQ</div>
+          <div class="site-faq-item"><div class="preview-ph sm"></div><div class="site-faq-arrow">+</div></div>
+          <div class="site-faq-item"><div class="preview-ph xs"></div><div class="site-faq-arrow">+</div></div>
+        </div>`}
+        <div class="site-contact-bar">
+          <div class="site-contact-field"><div class="site-contact-label">Email</div><div class="site-contact-val">${esc(A['official_email']||'—')}</div></div>
+          <div class="site-contact-field"><div class="site-contact-label">Phone</div><div class="site-contact-val">${esc(A['official_phone']||'—')}</div></div>
+          <div class="site-contact-field"><div class="site-contact-label">Location</div><div class="site-contact-val">${esc(city||'—')}</div></div>
+        </div>
+      </div>
+    </div>`;
+
+  const html = `<div class="step-content">
+    <div style="margin-bottom:2rem">
+      <div class="step-eyebrow">Website Preview</div>
+      <h1 class="step-heading">Here's your website blueprint</h1>
+      <p class="step-sub">This is how <strong>${esc(bizName)}</strong>'s website will be structured. Our team will refine and build this into your full live site.</p>
+    </div>
+
+    ${previewHTML}
+
+    <div style="margin-bottom:2rem">
+      <div style="font-size:11px;font-weight:700;color:var(--text-faint);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">Content Coverage</div>
+      <div class="section-coverage-list">
+        ${coverage.map(({section,answered,total})=>`<div class="coverage-row">
+          <span class="coverage-icon">${section.icon}</span>
+          <span class="coverage-name">${esc(section.title)}</span>
+          <div class="coverage-bar-bg"><div class="coverage-bar-fill" style="width:${total>0?Math.round((answered/total)*100):0}%"></div></div>
+          <span class="coverage-nums">${answered}/${total}</span>
+        </div>`).join('')}
+      </div>
+    </div>
+
+    <div class="handoff-card">
+      <div class="handoff-header">
+        <div class="handoff-avatar">🚀</div>
+        <div>
+          <div class="handoff-title">Let's get started.</div>
+          <div class="handoff-sub">Your blueprint is ready for the vAI team</div>
+        </div>
+      </div>
+      <p class="handoff-body">We'll create your project dashboard and pass this to our senior developers who will review your blueprint, reach out within 24 hours, and kick off your build.</p>
+      <div class="handoff-steps">
+        <div class="handoff-step"><div class="handoff-step-num">1</div>Your profile is reviewed by our team</div>
+        <div class="handoff-step"><div class="handoff-step-num">2</div>Your project dashboard is created in vAI</div>
+        <div class="handoff-step"><div class="handoff-step-num">3</div>Senior developer assigned & kickoff call scheduled</div>
+      </div>
+    </div>
+  </div>`;
+
+  document.getElementById('stepWrap').innerHTML = html;
+}
+
+// ═══════════════════════════════════════════════════════
+//  COMPLETION
+// ═══════════════════════════════════════════════════════
+function renderCompletion(){
+  state.phase = 'complete';
+  document.getElementById('footerNav').style.display = 'none';
+  document.getElementById('progressFill').style.width = '100%';
+  document.getElementById('progressLabel').textContent = 'Complete';
+  document.getElementById('phaseBadge').className = 'phase-badge optional';
+  document.getElementById('phaseBadge').textContent = 'Done';
+
+  const A = state.answers;
+  const durationSec = Math.round((Date.now()-state.startTime)/1000);
+  const totalQ = MANDATORY_Q.length + getAllQuestions().length;
+  const answered = Object.keys(A).filter(k=>!state.skipped.has(k)&&hasAnswer(k)).length;
+  const pct = Math.round((answered/totalQ)*100);
+
+  const profileRows = [
+    {label:'Business Name',val:A['registered_name']||'—'},
+    {label:'Industry',val:state.industry?.displayName||'—'},
+    {label:'Email',val:A['official_email']||'—'},
+    {label:'Phone',val:A['official_phone']||'—'},
+    {label:'City',val:findFirstAnswer(['city','operating_cities'])||'—'},
+    {label:'Sections',val:state.sections.length+' website sections'},
+    {label:'Logo files',val:(state.uploadedFiles['logo_upload']||[]).length?`${(state.uploadedFiles['logo_upload']||[]).length} uploaded`:'Not uploaded'},
+    {label:'Other assets',val:(state.uploadedFiles['assets_upload']||[]).length?`${(state.uploadedFiles['assets_upload']||[]).length} uploaded`:'Not uploaded'},
+  ];
+
+  const html = `<div class="step-content">
+    <div class="completion-wrap">
+      <div class="completion-icon">✓</div>
+      <h1 class="completion-heading">You're all set!</h1>
+      <p class="completion-sub">Your business profile has been submitted to vAI. Our team will be in touch within 24 hours to kick off your project.</p>
+
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-val">${pct}%</div><div class="stat-label">Profile filled</div></div>
+        <div class="stat-card"><div class="stat-val">${state.sections.length}</div><div class="stat-label">Website sections</div></div>
+        <div class="stat-card"><div class="stat-val">${durationSec<60?durationSec+'s':Math.round(durationSec/60)+'m'}</div><div class="stat-label">Time taken</div></div>
+      </div>
+
+      <div class="profile-card">
+        <div class="profile-header">
+          <div class="profile-avatar">${state.industry?.emoji||'🏢'}</div>
+          <div>
+            <div class="profile-biz-name">${esc(A['registered_name']||'Your Business')}</div>
+            <div class="profile-industry">${esc(state.industry?.displayName||'')} · ${esc(state.industry?.cat||'')}</div>
+          </div>
+        </div>
+        <div class="profile-data">
+          ${profileRows.map(r=>`<div class="profile-datum"><div class="pd-label">${esc(r.label)}</div><div class="pd-val">${esc(String(r.val).slice(0,60))}${String(r.val).length>60?'…':''}</div></div>`).join('')}
+        </div>
+      </div>
+
+      <div class="completion-actions">
+        <button class="btn-primary-action" onclick="submitForm()">Submit to vAI →</button>
+        <button class="btn-secondary-action" onclick="exportJSON()">↓ Download blueprint (JSON)</button>
+        <button class="btn-secondary-action" onclick="startOver()">Start over</button>
+      </div>
+    </div>
+  </div>`;
+  document.getElementById('stepWrap').innerHTML = html;
+}
+
+// ═══════════════════════════════════════════════════════
+//  SUBMIT & EXPORT
+// ═══════════════════════════════════════════════════════
+function buildPayload(){
+  const logoFiles=(state.uploadedFiles['logo_upload']||[]).map(f=>({name:f.name,size:f.size,type:f.type}));
+  const assetFiles=(state.uploadedFiles['assets_upload']||[]).map(f=>({name:f.name,size:f.size,type:f.type}));
+  return {
+    session_id:'vai_'+Date.now(),
+    submitted_at:new Date().toISOString(),
+    platform:'vAI Onboarding v3 — AI Architect',
+    ai_generated: state.aiGenerated,
+    business:{
+      registered_name:state.answers['registered_name'],
+      official_email:state.answers['official_email'],
+      official_phone:state.answers['official_phone'],
+      whatsapp:state.answers['whatsapp']||state.answers['official_phone'],
+      description:state.answers['biz_description'],
+      industry:state.industry?.displayName,
+      industry_category:state.industry?.cat,
+    },
+    website_sections: state.sections.map(s=>({
+      id:s.id, title:s.title, icon:s.icon,
+      questions_answered: s.questions.filter(q=>hasAnswer(q.id)&&!state.skipped.has(q.id)).length,
+      questions_total: s.questions.length,
+    })),
+    section_responses: Object.fromEntries(state.sections.map(section=>[
+      section.id,
+      Object.fromEntries(section.questions.map(q=>[q.id,{
+        question:q.question,
+        answer:state.answers[q.id]||null,
+        other_text:state.otherInputs[q.id]||null,
+        skipped:state.skipped.has(q.id),
+      }]))
+    ])),
+    online_presence:state.answers['online_presence']||{},
+    uploaded_assets:{ logo:logoFiles, brand_assets:assetFiles },
+    meta:{
+      duration_seconds:Math.round((Date.now()-state.startTime)/1000),
+      total_sections:state.sections.length,
+      questions_answered:Object.keys(state.answers).filter(k=>!state.skipped.has(k)&&hasAnswer(k)).length,
+      questions_skipped:state.skipped.size,
+    }
+  };
+}
+function submitForm(){
+  const p=buildPayload();
+  console.log('vAI onboarding payload v3:', p);
+  alert('Submitted! ✓\n\nIn production this posts to your CRM or project management system.\nCheck the browser console for the full JSON blueprint.');
+}
+function exportJSON(){
+  const p=buildPayload();
+  const blob=new Blob([JSON.stringify(p,null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=`vai_blueprint_${(state.industry?.displayName||'unknown').replace(/\s+/g,'_')}_${Date.now()}.json`;
+  a.click();
+}
+function startOver(){
+  state={phase:'contact',contactIdx:0,industry:null,sectionIdx:0,questionIdx:-1,sections:[],answers:{},skipped:new Set(),uploadedFiles:{},otherInputs:{},startTime:Date.now(),aiGenerated:false};
+  indSelected=null; indSearch=''; indCat='All'; otherText='';
+  init();
+}
+
+// ═══════════════════════════════════════════════════════
+//  HELPERS
+// ═══════════════════════════════════════════════════════
+function findFirstAnswer(keys){
+  for(const k of keys){
+    if(state.answers[k] && hasAnswer(k)) return String(state.answers[k]);
+    // search all section questions by partial ID match
+    for(const sec of state.sections){
+      const q=sec.questions.find(q=>keys.some(key=>q.id.includes(key)));
+      if(q && state.answers[q.id] && hasAnswer(q.id)) return String(state.answers[q.id]);
+    }
+  }
+  return null;
+}
+function findFirstAnswerArray(keys){
+  for(const k of keys){
+    const v=state.answers[k];
+    if(v && Array.isArray(v) && v.length) return v;
+    if(v && typeof v==='string' && v.trim()) return v.split(',').map(s=>s.trim()).filter(Boolean);
+    for(const sec of state.sections){
+      const q=sec.questions.find(q=>keys.some(key=>q.id.includes(key)));
+      if(q){
+        const val=state.answers[q.id];
+        if(val && Array.isArray(val) && val.length) return val;
+        if(val && typeof val==='string' && val.trim()) return val.split(',').map(s=>s.trim()).filter(Boolean);
+      }
+    }
+  }
+  return [];
+}
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&!e.shiftKey){
+    const activeEl=document.activeElement;
+    if(activeEl&&activeEl.tagName==='TEXTAREA') return;
+    if(activeEl&&activeEl.tagName==='INPUT'){ e.preventDefault(); goForward(); }
+  }
+});
+
+// ═══════════════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════════════
+init();
+</script>
+</body>
+</html>
